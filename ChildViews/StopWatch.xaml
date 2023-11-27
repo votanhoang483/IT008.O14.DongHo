@@ -4,6 +4,7 @@
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  mc:Ignorable="d"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
                  d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -13,23 +14,24 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+    
         <!-- Display Area -->
         <TextBlock x:Name="txtDisplay" Grid.Row="0" Text="00:00:00.00" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" 
                    FontFamily="YourFontFamily" Foreground="DarkGreen"/>
         <!-- Buttons -->
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-            <Button x:Name="btnStart" Width="50" Height="50" Margin="15" Click="btnStart_Click">
-                <Image Source="/ChildViews/start.png" Width="47" Height="47" />
+            <Button x:Name="btnStart"  Click="btnStart_Click" Style="{StaticResource menuButtonStopWatch}"
+            Tag="#D1eed3">
+                <fa:IconImage Icon="Play" Style="{StaticResource ButtoniconStopWatch}" Tag="#D1eed3"/>
             </Button>
-            <Button x:Name="btnLap" Width="50" Height="50" Margin="15" Click="btnLap_Click">
-                <Image Source="/ChildViews/lap.png" Width="47" Height="47" />
+            <Button x:Name="btnLap"  Click="btnLap_Click" Style="{StaticResource menuButtonStopWatch}">
+                <fa:IconImage Icon="Flag" Style="{StaticResource ButtoniconStopWatch}"/>
             </Button>
-            <Button x:Name="btnStop" Width="50" Height="50" Margin="15" Click="btnStop_Click">
-                <Image Source="/ChildViews/stop.png" Width="47" Height="47" />
+            <Button x:Name="btnStop"  Click="btnStop_Click" Style="{StaticResource menuButtonStopWatch}" Tag="#D1eed3">
+                <fa:IconImage Icon="Pause" Style="{StaticResource ButtoniconStopWatch}"/>
             </Button>
-            <Button x:Name="btnReset" Width="50" Height="50" Margin="15" Click="btnReset_Click">
-                <Image Source="/ChildViews/restart.png" Width="47" Height="50" />
+            <Button x:Name="btnReset" Click="btnReset_Click" Style="{StaticResource menuButtonStopWatch}" Tag="#D1eed3">
+                <fa:IconImage Icon="ArrowRotateLeft" Style="{StaticResource ButtoniconStopWatch}"/>
             </Button>
 
         </StackPanel>

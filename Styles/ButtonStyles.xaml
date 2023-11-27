@@ -83,4 +83,35 @@
         <Setter Property="Width" Value="9"/>
         <Setter Property="Height" Value="9"/>
     </Style>
+    
+    
+    <Style x:Key="ButtoniconStopWatch" TargetType ="fa:IconImage" >
+        <Setter Property="Foreground" Value="{Binding Path=Tag ,RelativeSource={RelativeSource AncestorType=RadioButton}}"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Margin" Value="35,0,20,0"/>
+        <Setter Property="IconFont" Value="Solid"/>
+    </Style>
+    <!--MenuButtonStopWatch-->
+    <Style x:Key="menuButtonStopWatch" TargetType="Button">
+        <Setter Property="Height" Value="50" />
+        <Setter Property="Margin" Value="-5,0,0,5"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" 
+                    BorderThickness="4,0,0,0"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--Mouse over back color-->
+        
+    </Style>
+
 </ResourceDictionary>
