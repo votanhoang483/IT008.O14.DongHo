@@ -152,6 +152,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="ChildViews\start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ChildViews\lap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ChildViews\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ChildViews\restart.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
