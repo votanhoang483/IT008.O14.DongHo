@@ -59,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChildViews\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ChildViews\PomodoroClock.xaml.cs">
       <DependentUpon>PomodoroClock.xaml</DependentUpon>
     </Compile>
@@ -74,6 +77,7 @@
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Reponsitories\ReponsitoryBase.cs" />
     <Compile Include="ViewModels\AlarmViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewMoDel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PomodoroViewModel.cs" />
     <Compile Include="ViewModels\StopWatchViewModel.cs" />
@@ -84,6 +88,10 @@
       <DependentUpon>Timer.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\WorldClockViewModel.cs" />
+    <Page Include="ChildViews\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ChildViews\PomodoroClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

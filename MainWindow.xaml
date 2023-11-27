@@ -17,6 +17,9 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
     <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:HomeViewMoDel}">
+            <childview:Home/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:TimerViewModel}">
             <childview:Timer/>
         </DataTemplate>
@@ -52,11 +55,20 @@
         <!--Main Section-->
        
         <StackPanel>
+            
             <RadioButton Style="{StaticResource menuButton}"
                          Tag="#D1eed3"
                         >
                 <StackPanel Orientation="Horizontal">
                     <fa:IconImage Icon="UserClock" Style="{StaticResource menuButtonIcon}"/>
+                </StackPanel>
+            </RadioButton>
+            <RadioButton Style="{StaticResource menuButton}"
+Tag="#D1eed3"
+                         Command="{Binding ShowHomeCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
+                    <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
                 </StackPanel>
             </RadioButton>
             <RadioButton Style="{StaticResource menuButton}"
@@ -99,13 +111,7 @@ Tag="#D1eed3"
                     <TextBlock Text="Pomodoro Clock" Style="{StaticResource menuButtonText}"/>
                 </StackPanel>
             </RadioButton>
-            <RadioButton Style="{StaticResource menuButton}"
-Tag="#D1eed3">
-                <StackPanel Orientation="Horizontal">
-                    <fa:IconImage Icon="Gear" Style="{StaticResource menuButtonIcon}"/>
-                    <TextBlock Text="Setting" Style="{StaticResource menuButtonText}"/>
-                </StackPanel>
-            </RadioButton>
+           
         </StackPanel>
         <Border CornerRadius="0,10,10,0" Grid.Column="1">
             <Border.Background>

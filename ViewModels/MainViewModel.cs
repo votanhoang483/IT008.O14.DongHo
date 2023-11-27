@@ -56,6 +56,8 @@ namespace DoAn_LT.ViewModels
         public ICommand ShowStopWatchCommand { get; }
         public ICommand ShowTimerCommand { get; }
         public ICommand ShowWorldClockCommand { get; }
+        
+        public ICommand ShowHomeCommand { get; }
         public MainViewModel()
         {
             ShowAlarmCommand = new ViewModelCommand(ExecuteShowAlarmCommand);
@@ -63,7 +65,8 @@ namespace DoAn_LT.ViewModels
             ShowStopWatchCommand = new ViewModelCommand(ExecuteShowStopWatchCommand);
             ShowTimerCommand = new ViewModelCommand(ExecuteShowTimerCommand);
             ShowWorldClockCommand = new ViewModelCommand(ExecuteShowWorldClockCommand);
-        }
+            ShowHomeCommand = new ViewModelCommand(ExecuteShowHomeCommand);
+            }
 
         private void ExecuteShowWorldClockCommand(object obj)
         {
@@ -97,6 +100,12 @@ namespace DoAn_LT.ViewModels
             CurrentChildView = new PomodoroViewModel();
             Caption = "Pomodoro Clock";
             Icon = IconChar.FireFlameCurved;
+        }
+       private void ExecuteShowHomeCommand(object obj)
+        {
+            CurrentChildView = new HomeViewMoDel();
+            Caption = "Home";
+            Icon = IconChar.Home;
         }
     }
 }
