@@ -4,9 +4,99 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DoAn_LT.ChildViews"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Red">
+    <Grid >
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
             
+        <Grid Grid.Row="0" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+
+                <Button Style="{StaticResource PomodoroButton}" Click="Pomodoro_Click"
+                        Content="Pomodoro" FontSize="25" FontFamily="Montserrat" FontWeight="Medium"/>
+                <Button Style="{StaticResource PomodoroButton}" Click="Short_Click"
+                        Content="Short Break" FontSize="25" FontFamily="Montserrat" FontWeight="Medium"/>
+                <Button Style="{StaticResource PomodoroButton}" Click="Long_Click"
+                        Content="Long Break" FontSize="25" FontFamily="Montserrat" FontWeight="Medium"/>
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="600"/>
+          
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Label  
+                    x:Name="label2" 
+                    FontSize="200" 
+                    Foreground="Black " 
+                    Width="300" 
+                    Height="300"
+                    HorizontalContentAlignment="Right" 
+                    Background="#A3d5a7" 
+                    BorderBrush="Transparent"/>
+                <Label
+                    Height="300"
+                    VerticalAlignment="Center"
+                    Content=":"
+                    FontSize="180"
+                    Foreground="Black"  
+                    Background="#A3d5a7"
+                    HorizontalContentAlignment="Center" 
+                    BorderBrush="Transparent"
+                    />
+                    
+                <Label 
+                    x:Name="label1" 
+                    FontSize="200" 
+                    Foreground="Black" 
+                    Width="300" 
+                    Height="300" 
+                    Background="#A3d5a7"
+                    HorizontalContentAlignment="Left" 
+                    BorderBrush="Transparent" />
+            </StackPanel>
+
+            <Grid Grid.Column="0" HorizontalAlignment="Right">
+                <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Button x:Name="btnUp" Click="Up_Click"  Style="{StaticResource menuButtonPomodoro}"
+Tag="#D1eed3">
+                        <fa:IconImage Icon="SquareCaretUp" Style="{StaticResource ButtoniconPomodoro}" Tag="#D1eed3"/>
+                    </Button>
+                    <Button x:Name="btnDown" Click="Down_Click"  Style="{StaticResource menuButtonPomodoro}">
+                        <fa:IconImage Icon="SquareCaretDown" Style="{StaticResource ButtoniconPomodoro}"/>
+                    </Button>
+                </StackPanel>
+                
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="Start"
+                        Click="Start_Click"
+                        Style="{StaticResource PomodoroButton}"
+                        Content="Start" FontSize="25" 
+                        FontFamily="Montserrat" FontWeight="Medium"
+                        Margin="0,0,50,0"/>
+                <Button x:Name="Stop" Click="Stop_Click"
+                        Style="{StaticResource PomodoroButton}" Content="Pause" 
+                        FontSize="25" FontFamily="Montserrat" FontWeight="Medium"
+                        Margin="50,0,0,0"/>
+            </StackPanel>
+            
+        </Grid>
+
     </Grid>
 </UserControl>
