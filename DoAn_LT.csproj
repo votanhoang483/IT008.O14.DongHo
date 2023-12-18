@@ -59,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChildViews\AddTimerWindow.xaml.cs">
+      <DependentUpon>AddTimerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ChildViews\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,10 @@
       <DependentUpon>Timer.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\WorldClockViewModel.cs" />
+    <Page Include="ChildViews\AddTimerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ChildViews\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -171,6 +178,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ChildViews\restart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Timer\Edit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Timer\Add.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Timer\Check.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Timer\Clipboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Timer\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Timer\Cancel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

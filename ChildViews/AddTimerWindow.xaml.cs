@@ -10,33 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace DoAn_LT.ChildViews
 {
     /// <summary>
-    /// Interaction logic for Timer.xaml
+    /// Interaction logic for AddTimerWindow.xaml
     /// </summary>
-    public partial class Timer : UserControl
+    public partial class AddTimerWindow : Window
     {
-        public Timer()
+        public AddTimerWindow()
         {
             InitializeComponent();
         }
 
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
-        }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            var AddWindow = new AddTimerWindow();
-
-            AddWindow.ShowDialog();
-
-            
         }
     }
 }
