@@ -44,17 +44,9 @@ namespace DoAn_LT.ChildViews
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            if (!stopwatch.IsRunning)
-            {
                 stopwatch.Start();
                 timer.Start();
                 lastLapTime = DateTime.Now;
-            }
-            else
-            {
-                stopwatch.Stop();
-                timer.Stop();
-            }
         }
 
 
