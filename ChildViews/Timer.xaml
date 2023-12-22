@@ -51,52 +51,8 @@
 
         <Grid x:Name="gridTimer"
               Width="700">
-            <WrapPanel>
-                <Button Content="ervdvsef" Width="200" Height="100">
-                    
-                </Button>
-                <Button Content="ervdvsef" Width="200" Height="100">
-
-                </Button>
-                <Button Content="ervdvsef" Width="300" Height="100">
-
-                </Button>
-                <Button Content="ervdvsef" Width="200" Height="100">
-
-                </Button>
-                <Button Content="ervdvsef" Width="200" Height="100">
-
-                </Button>
-                <Button Content="ervdvsef" Width="300" Height="100">
-
-                </Button>
-                <Button Content="ervdvsef" Width="200" Height="100">
-
-                </Button>
-                <Button Content="ervdvsef" Width="200" Height="100">
-
-                </Button>
-                <Button Content="ervdvsef" Width="300" Height="100">
-
-                </Button>
-                <Button Content="ervdvsef" Width="200" Height="100">
-
-                </Button>
-                <Button Content="ervdvsef" Width="200" Height="100">
-
-                </Button>
-                <Button Content="ervdvsef" Width="300" Height="100">
-
-                </Button>
-                <Button Content="ervdvsef" Width="200" Height="100">
-
-                </Button>
-                <Button Content="ervdvsef" Width="200" Height="100">
-
-                </Button>
-                <Button Content="ervdvsef" Width="300" Height="100">
-
-                </Button>
+            <WrapPanel Orientation="Horizontal" VerticalAlignment="Top">
+                
             </WrapPanel>
             
         </Grid>

@@ -6,7 +6,47 @@
              xmlns:local="clr-namespace:DoAn_LT.ChildViews"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Azure">
-            
+    <Grid Background="LightGreen">
+        <Border BorderBrush="Black"
+         BorderThickness="1"
+         CornerRadius="5"
+         Height="54"
+         Width="100"
+         HorizontalAlignment="Right"
+         VerticalAlignment="Bottom"
+         Margin="10 10"
+         Panel.ZIndex ="1">
+            <Grid x:Name="gridAddNewGMT">
+                <DockPanel>
+                    <Button 
+                 Name="btnEdit"
+                 Height="40" 
+                 Width="40"
+                 FontSize="20"
+                 Margin="6 6 3 6"
+                 Click="btnEdit_Click">
+                        <Button.Content>
+                            <Image Source="../Assets/Images/Timer/Edit.png" Width="25" Height="25" Stretch="UniformToFill" />
+
+                        </Button.Content>
+                    </Button>
+
+                    <Button 
+                 Name="btnAdd"
+                 Height="40" 
+                 Width="40" 
+                 FontSize="20"
+                 Margin="3 6 6 6"
+                 Click="btnAdd_Click">
+                        <Button.Content>
+                            <Image Source="../Assets/Images/Timer/Add.png"  Stretch="UniformToFill"/>
+                        </Button.Content>
+
+                    </Button>
+                </DockPanel>
+
+            </Grid>
+
+        </Border>
     </Grid>
 </UserControl>
