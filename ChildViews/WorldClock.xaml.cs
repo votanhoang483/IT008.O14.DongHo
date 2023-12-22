@@ -24,5 +24,16 @@ namespace DoAn_LT.ChildViews
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            var addGMT = new AddNewGMT();
+            addGMT.ShowDialog();
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
