@@ -47,14 +47,14 @@
                              Margin="5 0">
                         
                     </TextBox>
-                    <Label Height="40"
+                    <TextBox Height="40"
                                Width="10"
-                               Content=":"
+                               Text=":"
                                FontSize="20"
                                HorizontalContentAlignment="Center"
                                VerticalContentAlignment="Center">
                         
-                    </Label>
+                    </TextBox>
                     <TextBox Height="40"
                              Width="80"
                              HorizontalContentAlignment="Center"
@@ -64,14 +64,14 @@
                             Margin="0">
                         
                     </TextBox>
-                    <Label Height="40"
+                    <TextBox Height="40"
                             Width="10"
-                            Content=":"
+                            Text=":"
                             FontSize="20"
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center">
                         
-                    </Label>
+                    </TextBox>
                     <TextBox Height="40"
                              Width="90"
                              HorizontalContentAlignment="Center"
