@@ -5,32 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DoAn_LT.ChildViews"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             x:Name="timerr">
     <Grid Background="#FFE7FFE7">
         <Border BorderBrush="Black"
                 BorderThickness="1"
                 CornerRadius="5"
                 Height="54"
-                Width="100"
+                Width="50"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 Margin="10 10"
                 Panel.ZIndex ="1"> 
             <Grid x:Name="gridAddEdit">
                 <DockPanel>
-                    <Button 
-                        Name="btnEdit"
-                        Height="40" 
-                        Width="40"
-                        FontSize="20"
-                        Margin="6 6 3 6"
-                        Click="btnEdit_Click">
-                        <Button.Content>
-                            <Image Source="../Assets/Images/Timer/Edit.png" Width="25" Height="25" Stretch="UniformToFill" />
-
-                        </Button.Content>
-                    </Button>
-
                     <Button 
                         Name="btnAdd"
                         Height="40" 
@@ -49,13 +37,9 @@
 
         </Border>
 
-        <Grid x:Name="gridTimer"
-              Width="700">
-            <WrapPanel Orientation="Horizontal" VerticalAlignment="Top">
-                
-            </WrapPanel>
+        <WrapPanel x:Name="ListTimer" Margin="56,26,60,69" Width="700" Height="350">
             
-        </Grid>
+        </WrapPanel>
         
         
     </Grid>

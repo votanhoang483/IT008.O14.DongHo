@@ -10,25 +10,15 @@
         <Border BorderBrush="Black"
          BorderThickness="1"
          CornerRadius="5"
-         Height="54"
-         Width="100"
+         Height="50"
+         Width="50"
          HorizontalAlignment="Right"
          VerticalAlignment="Bottom"
          Margin="10 10"
          Panel.ZIndex ="1">
             <Grid x:Name="gridAddNewGMT">
                 <DockPanel>
-                    <Button 
-                 Name="btnEdit"
-                 Height="40" 
-                 Width="40"
-                 FontSize="20"
-                 Margin="6 6 3 6" Click="btnEdit_Click">
-                        <Button.Content>
-                            <Image Source="../Assets/Images/Timer/Edit.png" Width="25" Height="25" Stretch="UniformToFill" />
-
-                        </Button.Content>
-                    </Button>
+                  
 
                     <Button 
                  Name="btnAdd"
@@ -46,5 +36,8 @@
             </Grid>
 
         </Border>
+        <ListView Margin="39,28,35,65" Background="MediumSpringGreen">
+            
+        </ListView>
     </Grid>
 </UserControl>

@@ -5,48 +5,167 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DoAn_LT.ChildViews"
         mc:Ignorable="d"
-        Title="AddNewGMT" Height="450" Width="500">
+        Title="AddNewGMT" Height="270" Width="300">
     <Grid>
-        <ComboBox Margin="40,84,40,298">
-            <ComboBoxItem Content="UTC-12:00"/>
-            <ComboBoxItem Content="UTC-11:00"/>
-            <ComboBoxItem Content="UTC-10:00"/>
-            <ComboBoxItem Content="UTC-09:30"/>
-            <ComboBoxItem Content="UTC-09:00"/>
-            <ComboBoxItem Content="UTC-08:00"/>
-            <ComboBoxItem Content="UTC-07:00"/>
-            <ComboBoxItem Content="UTC-06:00"/>
-            <ComboBoxItem Content="UTC-05:00"/>
-            <ComboBoxItem Content="UTC-04:00"/>
-            <ComboBoxItem Content="UTC-03:30"/>
-            <ComboBoxItem Content="UTC-03:00"/>
-            <ComboBoxItem Content="UTC-02:00"/>
-            <ComboBoxItem Content="UTC-01:00"/>
-            <ComboBoxItem Content="UTC~00:00"/>
-            <ComboBoxItem Content="UTC+01:00"/>
-            <ComboBoxItem Content="UTC+02:00"/>
-            <ComboBoxItem Content="UTC+03:00"/>
-            <ComboBoxItem Content="UTC+03:30"/>
-            <ComboBoxItem Content="UTC+04:00"/>
-            <ComboBoxItem Content="UTC+04:30"/>
-            <ComboBoxItem Content="UTC+05:00"/>
-            <ComboBoxItem Content="UTC+05:30"/>
-            <ComboBoxItem Content="UTC+05:45"/>
-            <ComboBoxItem Content="UTC+06:00"/>
-            <ComboBoxItem Content="UTC+06:30"/>
-            <ComboBoxItem Content="UTC+07:00"/>
-            <ComboBoxItem Content="UTC+08:00"/>
-            <ComboBoxItem Content="UTC+08:45"/>
-            <ComboBoxItem Content="UTC+09:00"/>
-            <ComboBoxItem Content="UTC+09:30"/>
-            <ComboBoxItem Content="UTC+10:00"/>
-            <ComboBoxItem Content="UTC+10:30"/>
-            <ComboBoxItem Content="UTC+11:00"/>
-            <ComboBoxItem Content="UTC+12:00"/>
-            <ComboBoxItem Content="UTC+12:45"/>
-            <ComboBoxItem Content="UTC+13:00"/>
-            <ComboBoxItem Content="UTC+14:00"/>
+        <Label Content="Add New Country/Region" Margin="0,0,0,220" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15">
+            
+        </Label>
+        <ComboBox Margin="30,75,30,149" Width="240" Height="30">
+            <ComboBoxItem Content="Afghanistan"/>
+            <ComboBoxItem Content="Ai Cập"/>
+            <ComboBoxItem Content="Alaska (Hoa Kì)"/>
+            <ComboBoxItem Content="Alberta (Canada)"/>
+            <ComboBoxItem Content="Argentina"/>
+            <ComboBoxItem Content="Arizona, Colorado, Utah (Hoa Kì)"/>
+            <ComboBoxItem Content="Algeria"/>
+            <ComboBoxItem Content="Ấn Độ"/>
+            <ComboBoxItem Content="Anh (UK)"/>
+            <ComboBoxItem Content="Armenia"/>
+            <ComboBoxItem Content="Azerbaijan"/>
+            <ComboBoxItem Content="Bangladesh"/>
+            <ComboBoxItem Content="Bhutan"/>
+            <ComboBoxItem Content="Bỉ"/>
+            <ComboBoxItem Content="Bồ Đào Nha"/>
+            <ComboBoxItem Content="Brazil"/>
+            <ComboBoxItem Content="British Columbia (Canada)"/>
+            <ComboBoxItem Content="Bulgaria"/>
+            <ComboBoxItem Content="California, Washington, Oregon (Hoa Kì)"/>
+            <ComboBoxItem Content="Cambodia"/>
+            <ComboBoxItem Content="Cape Verde"/>
+            <ComboBoxItem Content="Chatham Islands (New Zealand)"/>
+            <ComboBoxItem Content="Chile"/>
+            <ComboBoxItem Content="Cocos Islands"/>
+            <ComboBoxItem Content="Đức"/>
+            <ComboBoxItem Content="Fiji"/>
+            <ComboBoxItem Content="Gambia"/>
+            <ComboBoxItem Content="Georgia"/>
+            <ComboBoxItem Content="Ghana"/>
+            <ComboBoxItem Content="Hà Lan"/>
+            <ComboBoxItem Content="Halifax (Canada)"/>
+            <ComboBoxItem Content="Hàn Quốc"/>
+            <ComboBoxItem Content="Hawaii (Hoa Kì)"/>
+            <ComboBoxItem Content="Hy Lạp"/>
+            <ComboBoxItem Content="Indonesia (Western Time)"/>
+            <ComboBoxItem Content="Iceland"/>
+            <ComboBoxItem Content="Iran"/>
+            <ComboBoxItem Content="Iraq"/>
+            <ComboBoxItem Content="Ireland"/>
+            <ComboBoxItem Content="Israel"/>
+            <ComboBoxItem Content="Jordan"/>
+            <ComboBoxItem Content="Kazakhstan"/>
+            <ComboBoxItem Content="Kiribati (Phoenix Islands)"/>
+            <ComboBoxItem Content="Kuwait"/>
+            <ComboBoxItem Content="Kyrgyzstan"/>
+            <ComboBoxItem Content="Lào"/>
+            <ComboBoxItem Content="Line Islands (Kiribati)"/>
+            <ComboBoxItem Content="Lord Howe Island (Úc)"/>
+            <ComboBoxItem Content="Malaysia"/>
+            <ComboBoxItem Content="Marshall Islands"/>
+            <ComboBoxItem Content="Mexico City (Mexico)"/>
+            <ComboBoxItem Content="Micronesia (Chuuk)"/>
+            <ComboBoxItem Content="Myanmar"/>
+            <ComboBoxItem Content="Nam Phi"/>
+            <ComboBoxItem Content="Nauru"/>
+            <ComboBoxItem Content="Nepal"/>
+            <ComboBoxItem Content="New Caledonia"/>
+            <ComboBoxItem Content="New York, Florida, Georgia (Hoa Kì)"/>
+            <ComboBoxItem Content="New Zealand"/>
+            <ComboBoxItem Content="Nga (Moscow)"/>
+            <ComboBoxItem Content="Nhật Bản"/>
+            <ComboBoxItem Content="Nigeria"/>
+            <ComboBoxItem Content="Norfolk Island (Úc)"/>
+            <ComboBoxItem Content="Oman"/>
+            <ComboBoxItem Content="Pago Pago"/>
+            <ComboBoxItem Content="Pakistan"/>
+            <ComboBoxItem Content="Papua New Guinea"/>
+            <ComboBoxItem Content="Peru"/>
+            <ComboBoxItem Content="Pháp"/>
+            <ComboBoxItem Content="Philippines"/>
+            <ComboBoxItem Content="Puerto Rico"/>
+            <ComboBoxItem Content="Qatar"/>
+            <ComboBoxItem Content="Romania"/>
+            <ComboBoxItem Content="Samoa"/>
+            <ComboBoxItem Content="Saskatchewan (Canada)"/>
+            <ComboBoxItem Content="Saudi Arabia"/>
+            <ComboBoxItem Content="Senegal"/>
+            <ComboBoxItem Content="Singapore"/>
+            <ComboBoxItem Content="Solomon Islands"/>
+            <ComboBoxItem Content="Sri Lanka"/>
+            <ComboBoxItem Content="Syria"/>
+            <ComboBoxItem Content="Tahiti (Pháp)"/>
+            <ComboBoxItem Content="Tây Ban Nha"/>
+            <ComboBoxItem Content="Texas, Illiois, Missouri (Hoa Kì)"/>
+            <ComboBoxItem Content="Thái Lan"/>
+            <ComboBoxItem Content="Thổ Nhĩ Kì"/>
+            <ComboBoxItem Content="Thụy Sĩ"/>
+            <ComboBoxItem Content="Toronto (Canada)"/>
+            <ComboBoxItem Content="Tonga"/>
+            <ComboBoxItem Content="Trung Quốc"/>
+            <ComboBoxItem Content="Tunisia"/>
+            <ComboBoxItem Content="Turkmenistan"/>
+            <ComboBoxItem Content="Tuvalu"/>
+            <ComboBoxItem Content="UAE"/>
+            <ComboBoxItem Content="Úc (Central Standard Time)"/>
+            <ComboBoxItem Content="Úc (Central Western Standard Time)"/>
+            <ComboBoxItem Content="Úc (Eastern Standard Time)"/>
+            <ComboBoxItem Content="Úc (Western Standard Time)"/>
+            <ComboBoxItem Content="Ukraine"/>
+            <ComboBoxItem Content="Uzbekistan"/>
+            <ComboBoxItem Content="Vanuatu"/>
+            <ComboBoxItem Content="Việt Nam"/>
+            <ComboBoxItem Content="Washington D.C., Virginia, Maryland, (Hoa Kì)"/>
+            <ComboBoxItem Content="Ý"/>
+            <ComboBoxItem Content="Yemen"/>
         </ComboBox>
-        
+        <StackPanel Height="50"
+             Width="300"
+             Orientation="Horizontal" Margin="0,150,0,54">
+            <Button Height="30"
+             Width="100"
+             Margin="30 10 25 10"
+             HorizontalAlignment="Center" Click="Button_Click" >
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="20" 
+                        HorizontalAlignment="Center" 
+                        Source="../Assets/Images/Timer/Save.png" 
+                        Stretch="Uniform" 
+                        Margin="20 0 0 0"/>
+                        <Label Height="25"
+                        Width="65"
+                        Margin="5 0 0 0"
+                        Content="Save"
+                        
+                        >
+
+                        </Label>
+                    </StackPanel>
+                </Button.Content>
+
+            </Button>
+            <Button Height="30"
+             Width="100"
+             Margin="10 10 25 10"
+             HorizontalAlignment="Right" Click="Button_Click_1">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="15" 
+                        HorizontalAlignment="Center" 
+                        Source="../Assets/Images/Timer/Cancel.png" 
+                        Stretch="Uniform" 
+                        Margin="5 0 0 0"/>
+                        <Label Height="25"
+                        Width="65"
+                        Margin="0 0 0 0"
+                        Content="Cancel" >
+
+                        </Label>
+                    </StackPanel>
+                </Button.Content>
+
+
+            </Button>
+
+        </StackPanel>
     </Grid>
 </Window>

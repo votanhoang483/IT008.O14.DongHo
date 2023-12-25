@@ -19,9 +19,20 @@ namespace DoAn_LT.ChildViews
     /// </summary>
     public partial class AddNewGMT : Window
     {
+        public event RoutedEventHandler ButtonClicked;
         public AddNewGMT()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonClicked?.Invoke(this, new RoutedEventArgs());
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

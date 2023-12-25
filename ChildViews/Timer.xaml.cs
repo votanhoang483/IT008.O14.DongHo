@@ -25,18 +25,19 @@ namespace DoAn_LT.ChildViews
             InitializeComponent();
         }
 
-        int numberofAdd = 0;
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
+        string hour, min, sec;
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             var AddWindow = new AddTimerWindow();
+            AddWindow.ButtonClicked += AddWindow_ButtonClicked;
             AddWindow.ShowDialog();
-            
-            
+        }
+
+        private void AddWindow_ButtonClicked(object sender, RoutedEventArgs e)
+        {
+           var grid=new Grid();
+            grid.Background = System.Windows.Media.Brushes.LightGreen;
+            ListTimer.Children.Add(grid);
         }
     }
 }

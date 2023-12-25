@@ -19,14 +19,24 @@ namespace DoAn_LT.ChildViews
     /// </summary>
     public partial class AddTimerWindow : Window
     {
+        public event RoutedEventHandler ButtonClicked;
         public AddTimerWindow()
         {
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
+
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ButtonClicked?.Invoke(this, new RoutedEventArgs());
+        }
+       
+       
     }
 }
