@@ -30,7 +30,7 @@
                     </Button>
                     <Button Height="20"
                             Width="20"
-<<<<<<< HEAD
+
                             Margin="40,79,40,-79" >
                         <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\dow.png"/>
                     </Button>
@@ -68,16 +68,13 @@
                            FontSize="30">
                         
                     </Label>
-                    <Label Margin="185,25,-115,-54" 
-                           Content=":" 
-                           HorizontalAlignment="Center" 
-                           VerticalAlignment="Center" 
+					<Label Margin="185,25,-115,-54"
+                           Content=":"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
                            FontSize="30">
-=======
-                            Margin="40 0">
->>>>>>> 33e3266203bd986aec2577582f14ce6072a89ee3
 
-                    </Button>
+					</Label>
                     <Button Height="20"
                             Width="20"
                             Margin="30 0">
