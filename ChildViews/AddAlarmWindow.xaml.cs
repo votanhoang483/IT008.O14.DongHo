@@ -10,35 +10,39 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace DoAn_LT.ChildViews
 {
     /// <summary>
-    /// Interaction logic for Alarm.xaml
+    /// Interaction logic for AddAlarmWindow.xaml
     /// </summary>
-    public partial class Alarm : UserControl
+    public partial class AddAlarmWindow : Window
     {
-        public Alarm()
+        public AddAlarmWindow()
         {
             InitializeComponent();
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            AddAlarmWindow AddWindow = new AddAlarmWindow();
-            AddWindow.ShowDialog();
-        }
-
-        private void AddWindow_ButtonClicked(object sender, RoutedEventArgs e)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
 
-        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        private void Chime1_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+
+        private void bt_cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bt_save_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
