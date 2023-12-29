@@ -50,14 +50,70 @@
 
 
                     </Button>
+<<<<<<< HEAD
 
                   
                   
                   
+=======
+                    <Button Width="20" 
+                            Margin="140,0,-60,0">
+                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\up.png"/>
+                    </Button>
+                    <Button Width="20" 
+                            Margin="242,0,-162,0">
+                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\up.png"/>
+                    </Button>
+                    <Button Width="20" 
+                            Margin="242,79,-162,-79">
+                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\dow.png"/>
+                    </Button>
+                    <TextBox Margin="20,25,20,-54" 
+                             Text="00" 
+                             FontSize="30" 
+                             HorizontalAlignment="Center">
+                    </TextBox>
+                    <TextBox Margin="120,25,-80,-54" 
+                             Text="00" FontSize="30" 
+                             HorizontalAlignment="Center">
+
+                    </TextBox>
+                    <TextBox Margin="222,25,-182,-54" 
+                             Text="00" FontSize="30" 
+                             HorizontalAlignment="Center">
+
+                    </TextBox>
+                    <Label Margin="85,25,-15,-54" 
+                           Content=":" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           FontSize="30">
+
+                    </Label>
+                    <Label Margin="185,25,-115,-54" 
+                           Content=":" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+<<<<<<< HEAD
+                           FontSize="30">
+                        
+                    </Label>
+=======
+                           FontSize="30"/>
+>>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
+
+>>>>>>> a16552adb0e77aa01b2f936815dc7199971a6268
 
 
-
+<<<<<<< HEAD
                   
+=======
+                    <Button Height="20"
+                            Width="20"
+                            Margin="30 0">
+
+                        </Button>
+>>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
                 </DockPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="boxhou" 
@@ -67,18 +123,28 @@
                              VerticalContentAlignment="Center"
                              Text="00"
                              FontSize="20"
+<<<<<<< HEAD
                              Margin="5 0"
                              BorderThickness="0" PreviewTextInput="boxhou_PreviewTextInput">
                         
+=======
+                             Margin="5 0">
+
+>>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
                     </TextBox>
                     <TextBox Height="40"
                                Width="10"
                                Text=":"
                                FontSize="20"
                                HorizontalContentAlignment="Center"
+<<<<<<< HEAD
                                VerticalContentAlignment="Center"
                              BorderThickness="0">
                         
+=======
+                               VerticalContentAlignment="Center">
+
+>>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
                     </TextBox>
                     <TextBox x:Name="boxmin"
                         Height="40"
@@ -87,18 +153,28 @@
                             VerticalContentAlignment="Center"
                             Text="00"
                             FontSize="20"
+<<<<<<< HEAD
                             Margin="0"
                               BorderThickness="0" PreviewTextInput="boxmin_PreviewTextInput">
                         
+=======
+                            Margin="0">
+
+>>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
                     </TextBox>
                     <TextBox Height="40"
                             Width="10"
                             Text=":"
                             FontSize="20"
                             HorizontalContentAlignment="Center"
+<<<<<<< HEAD
                             VerticalContentAlignment="Center"
                               BorderThickness="0">
                         
+=======
+                            VerticalContentAlignment="Center">
+
+>>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
                     </TextBox>
                     <TextBox x:Name="boxsec"
                         Height="40"
@@ -107,9 +183,14 @@
                              VerticalContentAlignment="Center"
                             Text="00"
                             FontSize="20"
+<<<<<<< HEAD
                             Margin="5 0 10 0"
                               BorderThickness="0" PreviewTextInput="boxsec_PreviewTextInput">
                         
+=======
+                            Margin="5 0 10 0">
+
+>>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
                     </TextBox>
                 </StackPanel>
 

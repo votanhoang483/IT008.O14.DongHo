@@ -76,6 +76,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChildViews\AddAlarmWindow.xaml.cs">
+      <DependentUpon>AddAlarmWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ChildViews\AddNewGMT.xaml.cs">
       <DependentUpon>AddNewGMT.xaml</DependentUpon>
     </Compile>
@@ -111,13 +114,17 @@
       <DependentUpon>Timer.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\WorldClockViewModel.cs" />
+    <Page Include="ChildViews\AddAlarmWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ChildViews\AddNewGMT.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ChildViews\AddTimerWindow.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ChildViews\Home.xaml">
       <SubType>Designer</SubType>
@@ -204,28 +211,28 @@
     <Resource Include="ChildViews\restart.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\Timer\Edit.png">
+    <Resource Include="Assets\Images\Alarm\Edit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\Timer\Add.png">
+    <Resource Include="Assets\Images\Alarm\Add.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\Timer\Check.png">
+    <Resource Include="Assets\Images\Alarm\Check.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\Timer\Clipboard.png" />
+    <Resource Include="Assets\Images\Alarm\Clipboard.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\Timer\Save.png" />
+    <Resource Include="Assets\Images\Alarm\Save.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\Timer\Cancel.png" />
+    <Resource Include="Assets\Images\Alarm\Cancel.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\Home\Clock.jpg" />
@@ -240,6 +247,9 @@
     <Resource Include="Assets\Images\Add TImer\dow.png" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Resource Include="Assets\Images\Alarm\Song.png" />
+=======
     <Resource Include="Assets\Images\Timer\Reset.png" />
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +257,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\Timer\Play1.png" />
+>>>>>>> a16552adb0e77aa01b2f936815dc7199971a6268
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
