@@ -35,6 +35,8 @@ namespace DoAn_LT.ChildViews
             Grid childgrid = new Grid();
             childgrid.Background = System.Windows.Media.Brushes.White;
             childgrid.Margin=new Thickness(10,10,10,10);
+
+
             Button edit= new Button();  
             edit.HorizontalAlignment = HorizontalAlignment.Left;
             edit.VerticalAlignment = VerticalAlignment.Top;
@@ -44,6 +46,9 @@ namespace DoAn_LT.ChildViews
             Image imageEdit=new Image();
             imageEdit.Source = new BitmapImage(new Uri("C:\\Users\\PC\\OneDrive\\Máy tính\\IT008.O14.DongHo\\Assets\\Images\\Timer\\Edit.png"));
             edit.Content= imageEdit;
+            edit.Click += Edit_Click;
+
+
             Button remove = new Button();
             remove.HorizontalAlignment = HorizontalAlignment.Left;
             remove.VerticalAlignment = VerticalAlignment.Top;
@@ -54,6 +59,8 @@ namespace DoAn_LT.ChildViews
             Image imageRemove = new Image();
             imageRemove.Source = new BitmapImage(new Uri("C:\\Users\\PC\\OneDrive\\Máy tính\\IT008.O14.DongHo\\Assets\\Images\\Timer\\Cancel.png"));
             remove.Content = imageRemove;
+
+
             Label TimerName = new Label();
             TimerName.HorizontalAlignment = HorizontalAlignment.Left;
             TimerName.VerticalAlignment = VerticalAlignment.Top;
@@ -63,6 +70,8 @@ namespace DoAn_LT.ChildViews
             TimerName.Content = "Timer " + NumOfTimer ;
             TimerName.FontSize = 15;
             NumOfTimer++;
+
+
             Label hou = new Label();
             hou.Margin=new Thickness(51,0,0,0);
             hou.Content = "00";
@@ -70,6 +79,8 @@ namespace DoAn_LT.ChildViews
             hou.HorizontalAlignment= HorizontalAlignment.Left;
             hou.Width = 37;
             hou.FontSize = 25;
+
+
             Label min = new Label();
             min.Margin = new Thickness(108, 0, 0, 0);
             min.Content = "00";
@@ -77,6 +88,8 @@ namespace DoAn_LT.ChildViews
             min.HorizontalAlignment = HorizontalAlignment.Left;
             min.Width = 37;
             min.FontSize = 25;
+
+
             Label sec = new Label();
             sec.Margin = new Thickness(158, 0, 0, 0);
             sec.Content = "00";
@@ -84,6 +97,8 @@ namespace DoAn_LT.ChildViews
             sec.HorizontalAlignment = HorizontalAlignment.Left;
             sec.Width = 37;
             sec.FontSize = 25;
+
+
             Label label = new Label();
             label.Margin = new Thickness(93, 41, 0, 0);
             label.Content = ":";
@@ -91,6 +106,8 @@ namespace DoAn_LT.ChildViews
             label.HorizontalAlignment = HorizontalAlignment.Left;
             label.FontSize = 25;
             label.Width = 15;
+
+
             Label label1 = new Label();
             label1.Margin = new Thickness(142, 41, 0, 0);
             label1.Content = ":";
@@ -98,18 +115,22 @@ namespace DoAn_LT.ChildViews
             label1.HorizontalAlignment = HorizontalAlignment.Left;
             label1.FontSize = 25;
             label1.Width = 15;
+
+
             Button play = new Button();
             play.Margin = new Thickness(86, 94, 136, 15);
             Image imagePlay = new Image();
             imagePlay.Source = new BitmapImage(new Uri("C:\\Users\\PC\\OneDrive\\Máy tính\\IT008.O14.DongHo\\Assets\\Images\\Timer\\Play1.png"));
             play.Content = imagePlay;
+
+
             Button reset = new Button();
             reset.Margin = new Thickness(130, 94, 92, 15);
-            play.Margin = new Thickness(86, 94, 136, 15);
             Image imageReset = new Image();
             imageReset.Source = new BitmapImage(new Uri("C:\\Users\\PC\\OneDrive\\Máy tính\\IT008.O14.DongHo\\Assets\\Images\\Timer\\Reset.png"));
             reset.Content = imageReset;
-            reset.Click += Reset_Click;
+
+
             childgrid.Children.Add(hou);
             childgrid.Children.Add(min);
             childgrid.Children.Add(sec);
@@ -124,14 +145,55 @@ namespace DoAn_LT.ChildViews
             ListTimer.Children.Add(grid);
         }
 
-        private void Reset_Click(object sender, RoutedEventArgs e)
+        private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            Button deleteButton = (Button)sender;
-            Grid gridToRemove = (Grid)deleteButton.Parent;
-
-            // Xóa Grid khỏi WrapPanel
-            ListTimer.Children.Remove(gridToRemove);
+            AddTimerWindow EditWin = new AddTimerWindow();
+            EditWin.ShowDialog();
+            if (EditWin.DialogResult == true)
+            {
+                Button btn = (Button)sender;
+                Grid parent = FindVisualParent<Grid>(btn);
+                if (parent != null)
+                {
+                    if (parent.FindName("hou") is Label lblhou)
+                    {
+                        lblhou.Content = EditWin.boxhou.Text;
+                    }
+                    if (parent.FindName("min") is Label lblmin)
+                    {
+                        lblmin.Content = EditWin.boxmin.Text;
+                    }
+                    if (parent.FindName("sec") is Label lblsec)
+                    {
+                        lblsec.Content = EditWin.boxsec.Text;
+                    }
+                    if(parent.FindName("TimerName") is Label lblName)
+                    {
+                        lblName.Content = EditWin.Title.Text;
+                    }
+                }
+            }
+           
+               
         }
+        private T FindVisualParent<T>(DependencyObject child) where T : DependencyObject
+        {
+            DependencyObject parent =VisualTreeHelper.GetParent(child);
+            if(parent is T typedParent)
+            {
+                return typedParent;
+            }
+            else if(parent !=null)
+            {
+                return FindVisualParent<T>(parent);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+     
 
         private void Remove_Click(object sender, RoutedEventArgs e)
         {

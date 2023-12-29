@@ -25,70 +25,50 @@
                 <DockPanel>
                     <Button Height="20"
                             Width="20"
-                            Margin="40 0">
+                            Margin="40 0" Click="Button_Click_2"
+                            >
+                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\up.png">
+                            
+                        </Image>
+
+                    </Button> 
+                    <Button Height="20"
+                            Width="20"
+                            Margin="40 0" Click="Button_Click_3">
+                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\up.png">
+                            
+                        </Image>
+
 
                     </Button>
                     <Button Height="20"
                             Width="20"
-                            Margin="40,79,40,-79" >
-                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\dow.png"/>
+                            Margin="30 0" Click="Button_Click_4">
+                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\up.png">
+                            
+                        </Image>
+
+
                     </Button>
-                    <Button Width="20" 
-                            Margin="140,0,-60,0">
-                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\up.png"/>
-                    </Button>
-                    <Button Width="20" 
-                            Margin="242,0,-162,0">
-                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\up.png"/>
-                    </Button>
-                    <Button Width="20" 
-                            Margin="242,79,-162,-79">
-                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\dow.png"/>
-                    </Button>
-                    <TextBox Margin="20,25,20,-54" 
-                             Text="00" 
-                             FontSize="30" 
-                             HorizontalAlignment="Center">
-                    </TextBox>
-                    <TextBox Margin="120,25,-80,-54" 
-                             Text="00" FontSize="30" 
-                             HorizontalAlignment="Center">
-                        
-                    </TextBox>
-                    <TextBox Margin="222,25,-182,-54" 
-                             Text="00" FontSize="30" 
-                             HorizontalAlignment="Center">
-                        
-                    </TextBox>
-                    <Label Margin="85,25,-15,-54" 
-                           Content=":" 
-                           HorizontalAlignment="Center" 
-                           VerticalAlignment="Center" 
-                           FontSize="30">
-                        
-                    </Label>
-                    <Label Margin="185,25,-115,-54" 
-                           Content=":" 
-                           HorizontalAlignment="Center" 
-                           VerticalAlignment="Center" 
-                           FontSize="30"/>
+
+                  
+                  
+                  
 
 
 
-                    <Button Height="20"
-                            Width="20"
-                            Margin="30 0">
-
-                    </Button>
+                  
                 </DockPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox Height="40"
+                    <TextBox x:Name="boxhou" 
+                        Height="40"
                              Width="90"
                              HorizontalContentAlignment="Center"
                              VerticalContentAlignment="Center"
                              Text="00"
                              FontSize="20"
-                             Margin="5 0">
+                             Margin="5 0"
+                             BorderThickness="0" PreviewTextInput="boxhou_PreviewTextInput">
                         
                     </TextBox>
                     <TextBox Height="40"
@@ -96,16 +76,19 @@
                                Text=":"
                                FontSize="20"
                                HorizontalContentAlignment="Center"
-                               VerticalContentAlignment="Center">
+                               VerticalContentAlignment="Center"
+                             BorderThickness="0">
                         
                     </TextBox>
-                    <TextBox Height="40"
+                    <TextBox x:Name="boxmin"
+                        Height="40"
                              Width="80"
                              HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             Text="00"
                             FontSize="20"
-                            Margin="0">
+                            Margin="0"
+                              BorderThickness="0" PreviewTextInput="boxmin_PreviewTextInput">
                         
                     </TextBox>
                     <TextBox Height="40"
@@ -113,16 +96,19 @@
                             Text=":"
                             FontSize="20"
                             HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center">
+                            VerticalContentAlignment="Center"
+                              BorderThickness="0">
                         
                     </TextBox>
-                    <TextBox Height="40"
-                             Width="90"
+                    <TextBox x:Name="boxsec"
+                        Height="40"
+                             Width="81"
                              HorizontalContentAlignment="Center"
                              VerticalContentAlignment="Center"
                             Text="00"
                             FontSize="20"
-                            Margin="5 0 10 0">
+                            Margin="5 0 10 0"
+                              BorderThickness="0" PreviewTextInput="boxsec_PreviewTextInput">
                         
                     </TextBox>
                 </StackPanel>
@@ -130,17 +116,27 @@
                 <DockPanel>
                     <Button Height="20"
                             Width="20"
-                            Margin="40 0">
+                            Margin="40 0" Click="Button_Click_5">
+                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\dow.png">
+                            
+                        </Image>
 
                     </Button>
                     <Button Height="20"
                             Width="20"
-                            Margin="40 0">
+                            Margin="40 0" Click="Button_Click_6">
+                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\dow.png">
+
+                        </Image>
 
                     </Button>
                     <Button Height="20"
                             Width="20"
-                            Margin="30 0">
+                            Margin="30 0" Click="Button_Click_7">
+                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\dow.png">
+
+                        </Image>
+
 
                     </Button>
                 </DockPanel>
@@ -157,7 +153,8 @@
                        Source="..\Assets\Images\Timer\Clipboard.png">
 
                 </Image>
-                <TextBox Height="30"
+                <TextBox x:Name="Title"
+                    Height="30"
                          Width="230"
                          Text="Insert your note"
                          FontSize="20">
@@ -170,7 +167,7 @@
             <StackPanel Height="50"
                         Width="300"
                         Orientation="Horizontal">
-                <Button Height="30"
+                <Button x:Name="Save" Height="30"
                         Width="100"
                         Margin="30 10 25 10"
                         HorizontalAlignment="Center" Click="Button_Click_1">
