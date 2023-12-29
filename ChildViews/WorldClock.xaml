@@ -6,38 +6,123 @@
              xmlns:local="clr-namespace:DoAn_LT.ChildViews"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="LightGreen">
-        <Border BorderBrush="Black"
-         BorderThickness="1"
-         CornerRadius="5"
-         Height="50"
-         Width="50"
-         HorizontalAlignment="Right"
-         VerticalAlignment="Bottom"
-         Margin="10 10"
-         Panel.ZIndex ="1">
-            <Grid x:Name="gridAddNewGMT">
-                <DockPanel>
-                  
+    <Grid Background="Honeydew">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Margin="683,10,10,373" Content="Add" FontSize="30" Height="50" Width="70" Grid.Row="0" >
 
-                    <Button 
-                 Name="btnAdd"
-                 Height="40" 
-                 Width="40" 
-                 FontSize="20"
-                 Margin="3 6 6 6" Click="btnAdd_Click">
-                        <Button.Content>
-                            <Image Source="../Assets/Images/Timer/Add.png"  Stretch="UniformToFill"/>
-                        </Button.Content>
+        </Button>
+        <ComboBox Margin="0,10,144,373" Text="Choose your country/region" Width="700" Height="50" Grid.Row="0" FontSize="20">
+            <ComboBoxItem Content="Afghanistan"/>
+            <ComboBoxItem Content="Ai Cập"/>
+            <ComboBoxItem Content="Alaska (Hoa Kì)"/>
+            <ComboBoxItem Content="Alberta (Canada)"/>
+            <ComboBoxItem Content="Argentina"/>
+            <ComboBoxItem Content="Arizona, Colorado, Utah (Hoa Kì)"/>
+            <ComboBoxItem Content="Algeria"/>
+            <ComboBoxItem Content="Ấn Độ"/>
+            <ComboBoxItem Content="Anh (UK)"/>
+            <ComboBoxItem Content="Armenia"/>
+            <ComboBoxItem Content="Azerbaijan"/>
+            <ComboBoxItem Content="Bangladesh"/>
+            <ComboBoxItem Content="Bhutan"/>
+            <ComboBoxItem Content="Bỉ"/>
+            <ComboBoxItem Content="Bồ Đào Nha"/>
+            <ComboBoxItem Content="Brazil"/>
+            <ComboBoxItem Content="British Columbia (Canada)"/>
+            <ComboBoxItem Content="Bulgaria"/>
+            <ComboBoxItem Content="California, Washington, Oregon (Hoa Kì)"/>
+            <ComboBoxItem Content="Cambodia"/>
+            <ComboBoxItem Content="Cape Verde"/>
+            <ComboBoxItem Content="Chatham Islands (New Zealand)"/>
+            <ComboBoxItem Content="Chile"/>
+            <ComboBoxItem Content="Cocos Islands"/>
+            <ComboBoxItem Content="Đức"/>
+            <ComboBoxItem Content="Fiji"/>
+            <ComboBoxItem Content="Gambia"/>
+            <ComboBoxItem Content="Georgia"/>
+            <ComboBoxItem Content="Ghana"/>
+            <ComboBoxItem Content="Hà Lan"/>
+            <ComboBoxItem Content="Halifax (Canada)"/>
+            <ComboBoxItem Content="Hàn Quốc"/>
+            <ComboBoxItem Content="Hawaii (Hoa Kì)"/>
+            <ComboBoxItem Content="Hy Lạp"/>
+            <ComboBoxItem Content="Indonesia (Western Time)"/>
+            <ComboBoxItem Content="Iceland"/>
+            <ComboBoxItem Content="Iran"/>
+            <ComboBoxItem Content="Iraq"/>
+            <ComboBoxItem Content="Ireland"/>
+            <ComboBoxItem Content="Israel"/>
+            <ComboBoxItem Content="Jordan"/>
+            <ComboBoxItem Content="Kazakhstan"/>
+            <ComboBoxItem Content="Kiribati (Phoenix Islands)"/>
+            <ComboBoxItem Content="Kuwait"/>
+            <ComboBoxItem Content="Kyrgyzstan"/>
+            <ComboBoxItem Content="Lào"/>
+            <ComboBoxItem Content="Line Islands (Kiribati)"/>
+            <ComboBoxItem Content="Lord Howe Island (Úc)"/>
+            <ComboBoxItem Content="Malaysia"/>
+            <ComboBoxItem Content="Marshall Islands"/>
+            <ComboBoxItem Content="Mexico City (Mexico)"/>
+            <ComboBoxItem Content="Micronesia (Chuuk)"/>
+            <ComboBoxItem Content="Myanmar"/>
+            <ComboBoxItem Content="Nam Phi"/>
+            <ComboBoxItem Content="Nauru"/>
+            <ComboBoxItem Content="Nepal"/>
+            <ComboBoxItem Content="New Caledonia"/>
+            <ComboBoxItem Content="New York, Florida, Georgia (Hoa Kì)"/>
+            <ComboBoxItem Content="New Zealand"/>
+            <ComboBoxItem Content="Nga (Moscow)"/>
+            <ComboBoxItem Content="Nhật Bản"/>
+            <ComboBoxItem Content="Nigeria"/>
+            <ComboBoxItem Content="Norfolk Island (Úc)"/>
+            <ComboBoxItem Content="Oman"/>
+            <ComboBoxItem Content="Pago Pago"/>
+            <ComboBoxItem Content="Pakistan"/>
+            <ComboBoxItem Content="Papua New Guinea"/>
+            <ComboBoxItem Content="Peru"/>
+            <ComboBoxItem Content="Pháp"/>
+            <ComboBoxItem Content="Philippines"/>
+            <ComboBoxItem Content="Puerto Rico"/>
+            <ComboBoxItem Content="Qatar"/>
+            <ComboBoxItem Content="Romania"/>
+            <ComboBoxItem Content="Samoa"/>
+            <ComboBoxItem Content="Saskatchewan (Canada)"/>
+            <ComboBoxItem Content="Saudi Arabia"/>
+            <ComboBoxItem Content="Senegal"/>
+            <ComboBoxItem Content="Singapore"/>
+            <ComboBoxItem Content="Solomon Islands"/>
+            <ComboBoxItem Content="Sri Lanka"/>
+            <ComboBoxItem Content="Syria"/>
+            <ComboBoxItem Content="Tahiti (Pháp)"/>
+            <ComboBoxItem Content="Tây Ban Nha"/>
+            <ComboBoxItem Content="Texas, Illiois, Missouri (Hoa Kì)"/>
+            <ComboBoxItem Content="Thái Lan"/>
+            <ComboBoxItem Content="Thổ Nhĩ Kì"/>
+            <ComboBoxItem Content="Thụy Sĩ"/>
+            <ComboBoxItem Content="Toronto (Canada)"/>
+            <ComboBoxItem Content="Tonga"/>
+            <ComboBoxItem Content="Trung Quốc"/>
+            <ComboBoxItem Content="Tunisia"/>
+            <ComboBoxItem Content="Turkmenistan"/>
+            <ComboBoxItem Content="Tuvalu"/>
+            <ComboBoxItem Content="UAE"/>
+            <ComboBoxItem Content="Úc (Central Standard Time)"/>
+            <ComboBoxItem Content="Úc (Central Western Standard Time)"/>
+            <ComboBoxItem Content="Úc (Eastern Standard Time)"/>
+            <ComboBoxItem Content="Úc (Western Standard Time)"/>
+            <ComboBoxItem Content="Ukraine"/>
+            <ComboBoxItem Content="Uzbekistan"/>
+            <ComboBoxItem Content="Vanuatu"/>
+            <ComboBoxItem Content="Việt Nam"/>
+            <ComboBoxItem Content="Washington D.C., Virginia, Maryland, (Hoa Kì)"/>
+            <ComboBoxItem Content="Ý"/>
+            <ComboBoxItem Content="Yemen"/>
 
-                    </Button>
-                </DockPanel>
+        </ComboBox>
 
-            </Grid>
-
-        </Border>
-        <ListView Margin="39,28,35,65" Background="MediumSpringGreen">
-            
-        </ListView>
+        <ListView Margin="0,99,0,-145" Background="Honeydew" Width="800" Grid.RowSpan="1" />
     </Grid>
 </UserControl>

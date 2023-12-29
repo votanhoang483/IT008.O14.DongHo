@@ -71,9 +71,14 @@
                            Content=":" 
                            HorizontalAlignment="Center" 
                            VerticalAlignment="Center" 
+<<<<<<< HEAD
                            FontSize="30">
                         
                     </Label>
+=======
+                           FontSize="30"/>
+
+>>>>>>> a16552adb0e77aa01b2f936815dc7199971a6268
 
 
                     <Button Height="20"

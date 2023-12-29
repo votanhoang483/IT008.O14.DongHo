@@ -7,41 +7,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              x:Name="timerr">
-    <Grid Background="#FFE7FFE7">
-        <Border BorderBrush="Black"
-                BorderThickness="1"
-                CornerRadius="5"
-                Height="54"
-                Width="50"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                Margin="10 10"
-                Panel.ZIndex ="1"> 
-            <Grid x:Name="gridAddEdit">
-                <DockPanel>
-                    <Button 
-                        Name="btnAdd"
-                        Height="40" 
-                        Width="40" 
-                        FontSize="20"
-                        Margin="3 6 6 6"
-                        Click="btnAdd_Click">
-                        <Button.Content>
-                            <Image Source="../Assets/Images/Timer/Add.png"  Stretch="UniformToFill"/>
-                        </Button.Content>
+    <Grid Background="Honeydew">
+        <ScrollViewer Margin="8,0,0,0" Height="450" Grid.Column="1">
+            <WrapPanel x:Name="ListTimer" Width="798" Height="450" >
+                <Grid Background="Honeydew" Height="150" Width="266">
+                    <Grid Background="White" Margin="10,10,10,10">
+                        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="30" FontSize="20" Click="Button_Click">
+                            <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Timer\Add.png"/>
+                        </Button>
+                        <Label Margin="0,80,0,0" Content="Click to add new timer!" HorizontalAlignment="Center" VerticalAlignment="Top" Height="30">
 
-                    </Button>
-                </DockPanel>
+                        </Label>
+                    </Grid>
 
-            </Grid>
+                </Grid>
+               
 
-        </Border>
+                
+            </WrapPanel>
+        </ScrollViewer>
 
-        <WrapPanel x:Name="ListTimer" Margin="56,26,60,69" Width="700" Height="350">
-            
-        </WrapPanel>
-        
-        
+
     </Grid>
-          
+
 </UserControl>
