@@ -14,72 +14,179 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Timers;
 using System.Reflection;
+using System.Data.SqlClient;
+using System.Data;
+using System.Data.SqlTypes;
+using Notifications.Wpf;
+using System.Text.RegularExpressions;
+using Microsoft.Win32;
 
 
 namespace DoAn_LT.ChildViews
 {
+    /// <summarya>
+    /// Interaction logic for PomodoroClock.xaml
+    /// </summary>
+
     public partial class PomodoroClock : UserControl
     {
+        string filename;
+        string fullfilepath;
+        int flag = 1;
+        string strcon = @"Data Source=LAPTOP-CL3NH660;Initial Catalog=clock;Integrated Security=True";
+        SqlConnection sqlcon = null;
         int minute_pomodoro = 25;
         int second_pomodoro = 0;
+        int second_short = 0;
+        int second_long = 0;
+        int minute_long = 5;
+        int minute_short = 10;
+        static MediaPlayer mediaPlayer = new MediaPlayer();
+
+        private void Music_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                fullfilepath = openFileDialog.FileName;
+                filename = System.IO.Path.GetFileNameWithoutExtension(fullfilepath);
+                mediaPlayer.Open(new Uri(fullfilepath));
+            }
+        }
+
+
+
         public PomodoroClock()
         {
             InitializeComponent();
+
+            if (sqlcon == null)
+            {
+                sqlcon = new SqlConnection(strcon);
+            }
+            if (sqlcon.State == ConnectionState.Closed)
+            {
+                sqlcon.Open();
+            }
             aTimer = new System.Windows.Forms.Timer();
             aTimer.Tick += new EventHandler(aTimer_Tick);
             aTimer.Interval = 1000;
-            label1.Content = output(second_pomodoro);
-            label2.Content = output(minute_pomodoro);
+            SqlCommand sqlcmd1 = new SqlCommand();
+
+            try
+            {
+                sqlcmd1.CommandType = CommandType.Text;
+                sqlcmd1.CommandText = "select * from pomodoro_clock";
+                sqlcmd1.Connection = sqlcon;
+                SqlDataReader reader = sqlcmd1.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    int a = reader.GetInt32(0);
+                    int b = reader.GetInt32(1);
+                    int c = reader.GetInt32(2);
+                    int d = reader.GetInt32(3);
+                    int e = reader.GetInt32(4);
+                    int f = reader.GetInt32(5);
+                    minute_pomodoro = a;
+                    minute_long = b;
+                    minute_short = c;
+                    second_pomodoro = d;
+                    second_long = f;
+                    second_short = e;
+
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+
+
+            label1.Text = output(second_pomodoro);
+            label2.Text = output(minute_pomodoro);
+
         }
+
         private System.Windows.Forms.Timer aTimer;
+
         private void Start_Click(object sender, EventArgs e)
         {
 
             aTimer.Start();
-            //label1.Text  = output(second_pomodoro);
-            //label2.Text = output(minute_pomodoro);
+
         }
+
         private void Stop_Click(object sender, EventArgs e)
         {
             aTimer.Stop();
         }
-        private async void aTimer_Tick(object sender, EventArgs e)
+
+        private void aTimer_Tick(object sender, EventArgs e)
         {
-            if ((second_pomodoro == 0) && (minute_pomodoro > 0))
+
+            if (flag == 1 && minute_pomodoro > 0 && second_pomodoro == 0)
             {
                 minute_pomodoro--;
-                label2.Content = output(minute_pomodoro);
+                label2.Text = output(minute_pomodoro);
                 second_pomodoro = 60;
             }
-            second_pomodoro--;
-
-            if ((minute_pomodoro == 0) && (second_pomodoro == 0))
+            if (flag == 2 && minute_short > 0 && second_short == 0)
             {
+                minute_short--;
+                label2.Text = output(minute_short);
+                second_short = 60;
+            }
+            if (flag == 3 && minute_long > 0 && second_long == 0)
+            {
+                minute_long--;
+                label2.Text = output(minute_long);
+                second_long = 60;
+            }
+
+
+            if (second_pomodoro > 0 && flag == 1)
+
+            {
+                second_pomodoro--;
+                label1.Text = output(second_pomodoro);
+            }
+            if (second_short > 0 && flag == 2)
+            {
+                second_short--;
+                label1.Text = output(second_short);
+            }
+            if (second_long > 0 && flag == 3)
+            {
+                second_long--;
+                label1.Text = output(second_long);
+            }
+            if (minute_pomodoro == 0 && second_pomodoro == 0 && flag == 1)
+            {
+                notification();
+
+
                 aTimer.Stop();
-                PlayAlertSound();
-                await ShowAlertMessageBox();
-                label1.Content = output(second_pomodoro);
             }
-            else
+            if (minute_short == 0 && second_short == 0 && flag == 2)
             {
-                label1.Content = output(second_pomodoro);
+                notification();
+
+                aTimer.Stop();
             }
-        }
+            if (minute_long == 0 && second_long == 0 && flag == 3)
+            {
+                notification();
 
-        private void PlayAlertSound()
-        {
-            string alertSoundFilePath = "alert_sound.mp3";
-            MediaPlayer player = new MediaPlayer();
-            player.Open(new Uri(alertSoundFilePath, UriKind.RelativeOrAbsolute));
-            player.Play();
-        }
+                aTimer.Stop();
+            }
 
-        private async Task ShowAlertMessageBox()
+        }
+        private void label2_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            var tcs = new TaskCompletionSource<bool>();
-            MessageBox.Show("Hết thời gian!", "Cảnh báo", MessageBoxButton.OK, MessageBoxImage.Warning);
-            tcs.SetResult(true);
-            await tcs.Task;
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
         public string output(int x)
         {
@@ -88,43 +195,176 @@ namespace DoAn_LT.ChildViews
             else
                 return "0" + x.ToString();
         }
-        private void Pomodoro_Click(object sender, EventArgs e)
+        private void Pomodoro_Click(object sender, RoutedEventArgs e)
         {
             aTimer.Stop();
-            second_pomodoro = 0;
-            minute_pomodoro = 25;
-            label1.Content = output(second_pomodoro);
-            label2.Content = output(minute_pomodoro);
+            flag = 1;
+            label1.Text = output(second_pomodoro);
+            label2.Text = output(minute_pomodoro);
         }
         private void Short_Click(object sender, EventArgs e)
         {
             aTimer.Stop();
-            second_pomodoro = 0;
-            minute_pomodoro = 5;
-
-            label1.Content = output(second_pomodoro);
-            label2.Content = output(minute_pomodoro);
+            flag = 2;
+            label1.Text = output(second_short);
+            label2.Text = output(minute_short);
         }
         private void Long_Click(object sender, EventArgs e)
         {
+
             aTimer.Stop();
-            second_pomodoro = 0;
-            minute_pomodoro = 10;
-            label1.Content = output(second_pomodoro);
-            label2.Content = output(minute_pomodoro);
+            flag = 3;
+            label1.Text = output(second_long);
+            label2.Text = output(minute_long);
+        }
+        string noti;
+
+        private void hour_change(object sender, EventArgs e)
+        {
+            SqlCommand sqlcmd2 = new SqlCommand();
+            sqlcmd2.CommandType = CommandType.Text;
+            if (flag == 1 && label2.Text != "")
+            {
+                minute_pomodoro = int.Parse(label2.Text);
+                sqlcmd2.CommandText = "update pomodoro_clock set pomodoro='" + minute_pomodoro + "'";
+                sqlcmd2.Connection = sqlcon;
+                sqlcmd2.ExecuteNonQuery();
+            }
+            if (flag == 2 && label2.Text != "")
+            {
+                minute_short = int.Parse(label2.Text);
+                sqlcmd2.CommandText = "update pomodoro_clock set shortbreak='" + minute_short + "'";
+                sqlcmd2.Connection = sqlcon;
+                sqlcmd2.ExecuteNonQuery();
+            }
+            if (flag == 3 && label2.Text != "")
+            {
+                minute_long = int.Parse(label2.Text);
+                sqlcmd2.CommandText = "update pomodoro_clock set longbreak='" + minute_long + "'";
+                sqlcmd2.Connection = sqlcon;
+                sqlcmd2.ExecuteNonQuery();
+            }
+        }
+        private void second_change(object sender, EventArgs e)
+        {
+            SqlCommand sqlcmd2 = new SqlCommand();
+            sqlcmd2.CommandType = CommandType.Text;
+            if (flag == 1 && label1.Text != "")
+            {
+                second_pomodoro = int.Parse(label1.Text);
+                sqlcmd2.CommandText = "update pomodoro_clock set second_po='" + second_pomodoro + "'";
+                sqlcmd2.Connection = sqlcon;
+                sqlcmd2.ExecuteNonQuery();
+            }
+            if (flag == 2 && label1.Text != "")
+            {
+                second_short = int.Parse(label1.Text);
+                sqlcmd2.CommandText = "update pomodoro_clock set second_short='" + second_short + "'";
+                sqlcmd2.Connection = sqlcon;
+                sqlcmd2.ExecuteNonQuery();
+            }
+            if (flag == 3 && label1.Text != "")
+            {
+                second_long = int.Parse(label1.Text);
+                sqlcmd2.CommandText = "update pomodoro_clock set second_long='" + second_long + "'";
+                sqlcmd2.Connection = sqlcon;
+                sqlcmd2.ExecuteNonQuery();
+            }
         }
         private void Up_Click(object sender, EventArgs e)
         {
-            minute_pomodoro += 1;
-            label2.Content = output(minute_pomodoro);
+
+            SqlCommand sqlcmd2 = new SqlCommand();
+            sqlcmd2.CommandType = CommandType.Text;
+
+
+            if (flag == 1)
+            {
+
+                minute_pomodoro += 1;
+                sqlcmd2.CommandText = "update pomodoro_clock set pomodoro='" + minute_pomodoro + "'";
+                sqlcmd2.Connection = sqlcon;
+                sqlcmd2.ExecuteNonQuery();
+                label2.Text = output(minute_pomodoro);
+            }
+            if (flag == 2)
+            {
+                minute_short += 1;
+
+                sqlcmd2.CommandText = "update pomodoro_clock set shortbreak='" + minute_short + "'";
+                sqlcmd2.Connection = sqlcon;
+                sqlcmd2.ExecuteNonQuery();
+
+
+                label2.Text = output(minute_short);
+
+            }
+            if (flag == 3)
+            {
+                minute_long += 1;
+                sqlcmd2.CommandText = "update pomodoro_clock set longbreak='" + minute_long + "'";
+                sqlcmd2.Connection = sqlcon;
+                sqlcmd2.ExecuteNonQuery();
+                label2.Text = output(minute_long);
+            }
         }
         private void Down_Click(object sender, EventArgs e)
         {
-            if (minute_pomodoro > 0)
+            SqlCommand sqlcmd2 = new SqlCommand();
+
+            if (flag == 1 && minute_pomodoro > 0)
             {
+
                 minute_pomodoro -= 1;
-                label2.Content = output(minute_pomodoro);
+                sqlcmd2.CommandText = "update pomodoro_clock set pomodoro='" + minute_pomodoro + "'";
+                sqlcmd2.Connection = sqlcon;
+                sqlcmd2.ExecuteNonQuery();
+                label2.Text = output(minute_pomodoro);
+            }
+            if (flag == 2 && minute_short > 0)
+            {
+                minute_short -= 1;
+                sqlcmd2.CommandText = "update pomodoro_clock set shortbreak='" + minute_short + "'";
+                sqlcmd2.Connection = sqlcon;
+                sqlcmd2.ExecuteNonQuery();
+                label2.Text = output(minute_short);
+
+            }
+            if (flag == 3 && minute_long > 0)
+            {
+                minute_long -= 1;
+                sqlcmd2.CommandText = "update pomodoro_clock set longbreak='" + minute_long + "'";
+                sqlcmd2.Connection = sqlcon;
+                sqlcmd2.ExecuteNonQuery();
+                label2.Text = output(minute_long);
             }
         }
+        private void notification()
+        {
+
+
+            if (flag == 1)
+            {
+                noti = "Time Out Pomodoro";
+            }
+            if (flag == 2) { noti = "Time Out Short Break"; }
+            if (flag == 3) { noti = "Time Out Long Break"; }
+            var notificationManager = new NotificationManager();
+            var notificationContent = new NotificationContent
+            {
+                Title = "Notification",
+
+                Message = noti,
+                Type = NotificationType.Information,
+
+            };
+
+            notificationManager.Show(notificationContent, expirationTime: TimeSpan.FromSeconds(30)
+
+    );
+        }
+
     }
+
 }
+

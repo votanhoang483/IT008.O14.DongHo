@@ -8,13 +8,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid >
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-            
+
         <Grid Grid.Row="0" >
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
 
@@ -32,12 +32,13 @@
             <Grid.ColumnDefinitions >
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="600"/>
-          
+
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Label  
+                <TextBox 
+                    BorderThickness="0"
                     x:Name="label2" 
                     FontSize="200" 
                     Foreground="Black " 
@@ -45,7 +46,10 @@
                     Height="300"
                     HorizontalContentAlignment="Right" 
                     Background="#A3d5a7" 
-                    BorderBrush="Transparent"/>
+                    BorderBrush="Transparent"
+                    TextChanged="hour_change"
+                    MaxLength="2"
+                    PreviewTextInput="label2_PreviewTextInput"/>
                 <Label
                     Height="300"
                     VerticalAlignment="Center"
@@ -56,8 +60,9 @@
                     HorizontalContentAlignment="Center" 
                     BorderBrush="Transparent"
                     />
-                    
-                <Label 
+
+                <TextBox
+                    BorderThickness="0"
                     x:Name="label1" 
                     FontSize="200" 
                     Foreground="Black" 
@@ -65,7 +70,9 @@
                     Height="300" 
                     Background="#A3d5a7"
                     HorizontalContentAlignment="Left" 
-                    BorderBrush="Transparent" />
+                    BorderBrush="Transparent" 
+                    MaxLength="2"
+                    TextChanged="second_change"/>
             </StackPanel>
 
             <Grid Grid.Column="0" HorizontalAlignment="Right">
@@ -78,24 +85,32 @@ Tag="#D1eed3">
                         <fa:IconImage Icon="SquareCaretDown" Style="{StaticResource ButtoniconPomodoro}"/>
                     </Button>
                 </StackPanel>
-                
+
             </Grid>
         </Grid>
 
         <Grid Grid.Row="2">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <Button x:Name="Start"
                         Click="Start_Click"
                         Style="{StaticResource PomodoroButton}"
                         Content="Start" FontSize="25" 
                         FontFamily="Montserrat" FontWeight="Medium"
                         Margin="0,0,50,0"/>
+                <Button x:Name="Music"
+                         Click="Music_Click"
+                         Style="{StaticResource PomodoroButton}"
+                         Content="Choose song" FontSize="25" 
+                         FontFamily="Montserrat" FontWeight="Medium"
+                         Margin="0,0,0,0"/>
                 <Button x:Name="Stop" Click="Stop_Click"
                         Style="{StaticResource PomodoroButton}" Content="Pause" 
                         FontSize="25" FontFamily="Montserrat" FontWeight="Medium"
                         Margin="50,0,0,0"/>
+
             </StackPanel>
-            
+
+
         </Grid>
 
     </Grid>

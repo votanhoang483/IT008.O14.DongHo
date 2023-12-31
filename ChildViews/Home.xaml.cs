@@ -13,6 +13,11 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Markup;
+using System.Windows.Threading;
+using System.Net;
+using Newtonsoft.Json.Linq;
+using System.Xml.Linq;
 
 namespace DoAn_LT.ChildViews
 {
@@ -24,18 +29,46 @@ namespace DoAn_LT.ChildViews
         public Home()
         {
             InitializeComponent();
-            Storyboard seconds = (Storyboard)giay.FindResource("sbseconds");
-            seconds.Begin();
-            seconds.Seek(new TimeSpan(0, 0, 0, DateTime.Now.Second, 0));
-
-            Storyboard minutes = (Storyboard)phut.FindResource("sbminutes");
-            minutes.Begin();
-            minutes.Seek(new TimeSpan(0, 0, DateTime.Now.Minute, DateTime.Now.Second, 0));
-
-            Storyboard hours = (Storyboard)gio.FindResource("sbhours");
-            hours.Begin();
-            hours.Seek(new TimeSpan(0, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second, 0));
+            this.DataContext = this;
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+            Day.Content = DateTime.Now.Day;
+            Month.Content = DateTime.Now.Month;
+            Year.Content = DateTime.Now.Year;
+            GetWeatherData();
         }
-       
+        public string TimeNow
+        {
+            get { return DateTime.Now.ToString("dd/MM/yyyy"); }
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            Hour.Content = DateTime.Now.Hour.ToString();
+            if (DateTime.Now.Minute < 10)
+            {
+                Minute.Content = "0" + DateTime.Now.Minute.ToString();
+            }
+            else
+                Minute.Content = DateTime.Now.Minute.ToString();
+        }
+        public void GetWeatherData()
+        {
+            string apiKey = "2bb2ffa2c75e1679a84913440bcda55d";
+            string cityId = "1566083";
+            string requestUrl = $"http://api.openweathermap.org/data/2.5/weather?id={cityId}&appid={apiKey}";
+
+            using (WebClient client = new WebClient())
+            {
+                string json = client.DownloadString(requestUrl);
+                JObject obj = JObject.Parse(json);
+                int tempInKelvin = (int)obj["main"]["temp"];
+                int tempInCelsius = tempInKelvin - 273;
+                Weather.Content = tempInCelsius.ToString();
+            }
+        }
     }
+
 }
