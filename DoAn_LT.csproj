@@ -247,17 +247,37 @@
     <Resource Include="Assets\Images\Add TImer\dow.png" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Resource Include="Assets\Images\Alarm\Song.png" />
-=======
-    <Resource Include="Assets\Images\Timer\Reset.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\Timer\pause.jpg" />
+    <Resource Include="Assets\Images\Add TImer\Play1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\Timer\Play1.png" />
->>>>>>> a16552adb0e77aa01b2f936815dc7199971a6268
+    <Resource Include="Assets\Images\Add TImer\pause.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Add TImer\Reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Add TImer\note.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Add TImer\cancel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Add TImer\tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Add TImer\add.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Add TImer\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Add TImer\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\Add TImer\pause.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

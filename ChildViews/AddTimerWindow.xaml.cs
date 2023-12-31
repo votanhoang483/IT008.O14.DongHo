@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,7 +20,8 @@ namespace DoAn_LT.ChildViews
     /// </summary>
     public partial class AddTimerWindow : Window
     {
-        public event RoutedEventHandler ButtonClicked;
+        public delegate void SaveButtonClickedEventHandler(string gio, string phut, string giay, string title);
+        public event SaveButtonClickedEventHandler SaveButtonClicked;
         public AddTimerWindow()
         {
             InitializeComponent();
@@ -34,7 +36,12 @@ namespace DoAn_LT.ChildViews
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            string ggio=boxhou.Text;
+            string pphut=boxmin.Text;
+            string ggiay = boxsec.Text;
+            string ttitle = Title.Text;
+            SaveButtonClicked?.Invoke(ggio,pphut, ggiay, ttitle);
+            Close();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

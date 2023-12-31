@@ -27,7 +27,7 @@
                             Width="20"
                             Margin="40 0" Click="Button_Click_2"
                             >
-                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\up.png">
+                        <Image Source="..\Assets\Images\Add TImer\up.png">
                             
                         </Image>
 
@@ -35,8 +35,8 @@
                     <Button Height="20"
                             Width="20"
                             Margin="40 0" Click="Button_Click_3">
-                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\up.png">
-                            
+                        <Image Source="..\Assets\Images\Add TImer\up.png">
+
                         </Image>
 
 
@@ -44,30 +44,19 @@
                     <Button Height="20"
                             Width="20"
                             Margin="30 0" Click="Button_Click_4">
-                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\up.png">
-                            
+                        <Image Source="..\Assets\Images\Add TImer\up.png">
+
                         </Image>
 
 
                     </Button>
-<<<<<<< HEAD
 
                   
                   
                   
-=======
-                    <Button Width="20" 
-                            Margin="140,0,-60,0">
-                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\up.png"/>
-                    </Button>
-                    <Button Width="20" 
-                            Margin="242,0,-162,0">
-                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\up.png"/>
-                    </Button>
-                    <Button Width="20" 
-                            Margin="242,79,-162,-79">
-                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\dow.png"/>
-                    </Button>
+                  
+                  
+                  
                     <TextBox Margin="20,25,20,-54" 
                              Text="00" 
                              FontSize="30" 
@@ -94,26 +83,14 @@
                            Content=":" 
                            HorizontalAlignment="Center" 
                            VerticalAlignment="Center" 
-<<<<<<< HEAD
                            FontSize="30">
                         
                     </Label>
-=======
-                           FontSize="30"/>
->>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
-
->>>>>>> a16552adb0e77aa01b2f936815dc7199971a6268
 
 
-<<<<<<< HEAD
+
+
                   
-=======
-                    <Button Height="20"
-                            Width="20"
-                            Margin="30 0">
-
-                        </Button>
->>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
                 </DockPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBox x:Name="boxhou" 
@@ -123,28 +100,21 @@
                              VerticalContentAlignment="Center"
                              Text="00"
                              FontSize="20"
-<<<<<<< HEAD
+
                              Margin="5 0"
                              BorderThickness="0" PreviewTextInput="boxhou_PreviewTextInput">
                         
-=======
-                             Margin="5 0">
 
->>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
                     </TextBox>
                     <TextBox Height="40"
                                Width="10"
                                Text=":"
                                FontSize="20"
                                HorizontalContentAlignment="Center"
-<<<<<<< HEAD
                                VerticalContentAlignment="Center"
                              BorderThickness="0">
                         
-=======
-                               VerticalContentAlignment="Center">
 
->>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
                     </TextBox>
                     <TextBox x:Name="boxmin"
                         Height="40"
@@ -153,28 +123,19 @@
                             VerticalContentAlignment="Center"
                             Text="00"
                             FontSize="20"
-<<<<<<< HEAD
                             Margin="0"
                               BorderThickness="0" PreviewTextInput="boxmin_PreviewTextInput">
                         
-=======
-                            Margin="0">
 
->>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
                     </TextBox>
                     <TextBox Height="40"
                             Width="10"
                             Text=":"
                             FontSize="20"
                             HorizontalContentAlignment="Center"
-<<<<<<< HEAD
                             VerticalContentAlignment="Center"
                               BorderThickness="0">
-                        
-=======
-                            VerticalContentAlignment="Center">
 
->>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
                     </TextBox>
                     <TextBox x:Name="boxsec"
                         Height="40"
@@ -183,14 +144,10 @@
                              VerticalContentAlignment="Center"
                             Text="00"
                             FontSize="20"
-<<<<<<< HEAD
                             Margin="5 0 10 0"
                               BorderThickness="0" PreviewTextInput="boxsec_PreviewTextInput">
                         
-=======
-                            Margin="5 0 10 0">
 
->>>>>>> 0691ea3e5b8811f4bdc08c59de2663fd85736de4
                     </TextBox>
                 </StackPanel>
 
@@ -198,7 +155,7 @@
                     <Button Height="20"
                             Width="20"
                             Margin="40 0" Click="Button_Click_5">
-                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\dow.png">
+                        <Image Source="..\Assets\Images\Add TImer\dow.png">
                             
                         </Image>
 
@@ -206,7 +163,7 @@
                     <Button Height="20"
                             Width="20"
                             Margin="40 0" Click="Button_Click_6">
-                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\dow.png">
+                        <Image Source="..\Assets\Images\Add TImer\dow.png">
 
                         </Image>
 
@@ -214,7 +171,7 @@
                     <Button Height="20"
                             Width="20"
                             Margin="30 0" Click="Button_Click_7">
-                        <Image Source="C:\Users\PC\OneDrive\Máy tính\IT008.O14.DongHo\Assets\Images\Add TImer\dow.png">
+                        <Image Source="..\Assets\Images\Add TImer\dow.png">
 
                         </Image>
 
@@ -231,7 +188,7 @@
                 <Image Height="30"
                        Width="40"
                        Margin="5"
-                       Source="..\Assets\Images\Timer\Clipboard.png">
+                       Source="..\Assets\Images\Add Timer\note.jpg">
 
                 </Image>
                 <TextBox x:Name="Title"
@@ -256,7 +213,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Height="20" 
                                    HorizontalAlignment="Center" 
-                                   Source="../Assets/Images/Timer/Save.png" 
+                                   Source="..\Assets\Images\Add Timer\tick.png" 
                                    Stretch="Uniform" 
                                    Margin="20 0 0 0"/>
                             <Label Height="25"
@@ -279,7 +236,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Image Height="15" 
                                    HorizontalAlignment="Center" 
-                                   Source="../Assets/Images/Timer/Cancel.png" 
+                                   Source="../Assets/Images/Add Timer/cancel.jpg" 
                                    Stretch="Uniform" 
                                    Margin="5 0 0 0"/>
                             <Label Height="25"

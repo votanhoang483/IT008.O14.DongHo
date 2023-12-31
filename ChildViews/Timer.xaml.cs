@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -9,9 +10,12 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+
 
 namespace DoAn_LT.ChildViews
 {
@@ -26,27 +30,19 @@ namespace DoAn_LT.ChildViews
         }
 
         int NumOfTimer = 1;
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void AddNewTimer_Click(object sender, RoutedEventArgs e)
         {
-            Grid grid= new Grid();
+
+            Grid grid = new Grid();
             grid.Height = 150;
             grid.Width = 266;
             grid.Background = System.Windows.Media.Brushes.Honeydew;
             Grid childgrid = new Grid();
             childgrid.Background = System.Windows.Media.Brushes.White;
-            childgrid.Margin=new Thickness(10,10,10,10);
+            childgrid.Margin = new Thickness(10, 10, 10, 10);
 
 
-            Button edit= new Button();  
-            edit.HorizontalAlignment = HorizontalAlignment.Left;
-            edit.VerticalAlignment = VerticalAlignment.Top;
-            edit.Height = 30;
-            edit.Width = 30;
-            edit.Margin = new Thickness(180, 0, 0, 0);
-            Image imageEdit=new Image();
-            imageEdit.Source = new BitmapImage(new Uri("C:\\Users\\PC\\OneDrive\\Máy tính\\IT008.O14.DongHo\\Assets\\Images\\Timer\\Edit.png"));
-            edit.Content= imageEdit;
-            edit.Click += Edit_Click;
 
 
             Button remove = new Button();
@@ -55,28 +51,31 @@ namespace DoAn_LT.ChildViews
             remove.Height = 30;
             remove.Width = 30;
             remove.Margin = new Thickness(210, 0, 0, 0);
-            remove.Click += Remove_Click;
             Image imageRemove = new Image();
-            imageRemove.Source = new BitmapImage(new Uri("C:\\Users\\PC\\OneDrive\\Máy tính\\IT008.O14.DongHo\\Assets\\Images\\Timer\\Cancel.png"));
+            imageRemove.Source = new BitmapImage(new Uri("pack://application:,,,/DoAn_LT;component/Assets/Images/Add TImer/remove.png"));
             remove.Content = imageRemove;
+            remove.Click += Remove_Click;
+
+
+
 
 
             Label TimerName = new Label();
             TimerName.HorizontalAlignment = HorizontalAlignment.Left;
             TimerName.VerticalAlignment = VerticalAlignment.Top;
-            TimerName.Width = 82;
+            TimerName.Width = 120;
             TimerName.Height = 35;
             TimerName.Margin = new Thickness(0, 3, 0, 0);
-            TimerName.Content = "Timer " + NumOfTimer ;
+            TimerName.Content = "Timer " + NumOfTimer;
             TimerName.FontSize = 15;
             NumOfTimer++;
 
 
             Label hou = new Label();
-            hou.Margin=new Thickness(51,0,0,0);
+            hou.Margin = new Thickness(51, 0, 0, 0);
             hou.Content = "00";
             hou.VerticalAlignment = VerticalAlignment.Center;
-            hou.HorizontalAlignment= HorizontalAlignment.Left;
+            hou.HorizontalAlignment = HorizontalAlignment.Left;
             hou.Width = 37;
             hou.FontSize = 25;
 
@@ -116,19 +115,204 @@ namespace DoAn_LT.ChildViews
             label1.FontSize = 25;
             label1.Width = 15;
 
+            int h = -1, p = -1, g = -1;
+
+            DispatcherTimer playtimer = new DispatcherTimer();
+            playtimer.Interval = TimeSpan.FromSeconds(1);
+           
+
+            Button pause = new Button();
+            pause.Margin = new Thickness(65, 94, 157, 15);
+            Image imagePause = new Image();
+            imagePause.Source = new BitmapImage(new Uri("pack://application:,,,/DoAn_LT;component/Assets/Images/Add TImer/pause.png"));
+            pause.Content = imagePause;
+            pause.Click += (s, ev) =>
+            {
+                playtimer.Stop();
+            };
+
+
 
             Button play = new Button();
-            play.Margin = new Thickness(86, 94, 136, 15);
+            play.Margin = new Thickness(111, 94, 111, 15);
             Image imagePlay = new Image();
-            imagePlay.Source = new BitmapImage(new Uri("C:\\Users\\PC\\OneDrive\\Máy tính\\IT008.O14.DongHo\\Assets\\Images\\Timer\\Play1.png"));
+            imagePlay.Source = new BitmapImage(new Uri("pack://application:,,,/DoAn_LT;component/Assets/Images/Add TImer/Play1.png"));
             play.Content = imagePlay;
+            play.Click += (s, ev) =>
+            {
+                h = Convert.ToInt32(hou.Content);
+                p = Convert.ToInt32(min.Content);
+                g = Convert.ToInt32(sec.Content);
+                playtimer.Start();
+                if (g >= 0)
+                {
+                    if (g >= 10)
+                    {
+                        sec.Content = g.ToString();
+                    }
+                    else
+                    {
+                        sec.Content = "0" + g.ToString();
+                    }
+                }
+                if (p >= 0)
+                {
+                    if (p >= 10)
+                    {
+                        min.Content = p.ToString();
+                    }
+                    else
+                    {
+                        min.Content = "0" + p.ToString();
+                    }
+                }
+                if (h >= 0)
+                {
+                    if (h >= 10)
+                    {
+                        hou.Content = h.ToString();
+                    }
+                    else
+                    {
+                        hou.Content = "0" + h.ToString();
+                    }
+                }
+
+            };
+            playtimer.Tick += (s, ev) =>
+            {
+                if(g>0)
+                {
+                    g--;
+                }
+                if(g==0&&p>0)
+                {
+                    g = 59;
+                    p--;
+                }
+                if(h>0&&p==0&&g==0)
+                {
+                    h--;
+                    p = 59;
+                    g = 59;
+                }
+                if(h==0&&g==0&&p==0)
+                {
+                    playtimer.Stop();
+                }
+                if (g >= 0)
+                {
+                    if (g >= 10)
+                    {
+                        sec.Content = g.ToString();
+                    }
+                    else
+                    {
+                        sec.Content = "0" + g.ToString();
+                    }
+                }
+                if (p >= 0)
+                {
+                    if (p >= 10)
+                    {
+                        min.Content = p.ToString();
+                    }
+                    else
+                    {
+                        min.Content = "0" + p.ToString();
+                    }
+                }
+                if (h >= 0)
+                {
+                    if (h >= 10)
+                    {
+                        hou.Content = h.ToString();
+                    }
+                    else
+                    {
+                        hou.Content = "0" + h.ToString();
+                    }
+                }
+            };
+
+
+
+
+
+
+            string firsthou = "00";
+            string firstmin = "00";
+            string firstsec = "00";
+
+
+
+            Button edit = new Button();
+            edit.HorizontalAlignment = HorizontalAlignment.Left;
+            edit.VerticalAlignment = VerticalAlignment.Top;
+            edit.Height = 30;
+            edit.Width = 30;
+            edit.Margin = new Thickness(180, 0, 0, 0);
+            Image imageEdit = new Image();
+            imageEdit.Source = new BitmapImage(new Uri("pack://application:,,,/DoAn_LT;component/Assets/Images/Add TImer/edit.png"));
+            edit.Content = imageEdit;
+            edit.Click += (s, ev) =>
+            {
+                AddTimerWindow newTimer = new AddTimerWindow();
+                newTimer.SaveButtonClicked += (ggio, pphut, ggiay, ttitle) =>
+                {
+                    int gio= Convert.ToInt32(ggio);
+                    int phut=Convert.ToInt32(pphut);
+                    int giay=Convert.ToInt32(ggiay);
+                    if(gio<10)
+                    {
+                        hou.Content = "0" + gio.ToString();
+                        firsthou = "0" + gio.ToString();
+                        
+                    }
+                    if(gio>=10)
+                    {
+                        hou.Content = gio.ToString();
+                        firsthou = gio.ToString();
+                    }
+                    if (phut < 10)
+                    {
+                        min.Content = "0" + phut.ToString();
+                        firstmin = "0" + phut.ToString();
+                    }
+                    if (phut >= 10)
+                    {
+                        min.Content = phut.ToString();
+                        firstmin = phut.ToString();
+                    }
+                    if (giay < 10)
+                    {
+                        sec.Content = "0" + giay.ToString();
+                        firstsec = "0" + giay.ToString();
+                    }
+                    if (giay >= 10)
+                    {
+                        sec.Content = giay.ToString();
+                        firstsec = giay.ToString();
+                    }
+                      
+                    TimerName.Content = ttitle;
+
+                };
+                newTimer.ShowDialog();
+            };
 
 
             Button reset = new Button();
-            reset.Margin = new Thickness(130, 94, 92, 15);
+            reset.Margin = new Thickness(159, 94, 63, 15);
             Image imageReset = new Image();
-            imageReset.Source = new BitmapImage(new Uri("C:\\Users\\PC\\OneDrive\\Máy tính\\IT008.O14.DongHo\\Assets\\Images\\Timer\\Reset.png"));
+            imageReset.Source = new BitmapImage(new Uri("pack://application:,,,/DoAn_LT;component/Assets/Images/Add TImer/Reset.png"));
             reset.Content = imageReset;
+            reset.Click += (s, ev) =>
+            {
+                hou.Content = firsthou;
+                min.Content = firstmin;
+                sec.Content = firstsec;
+            };
 
 
             childgrid.Children.Add(hou);
@@ -136,72 +320,22 @@ namespace DoAn_LT.ChildViews
             childgrid.Children.Add(sec);
             childgrid.Children.Add(label);
             childgrid.Children.Add(label1);
-            childgrid.Children.Add(edit);   
+            childgrid.Children.Add(edit);
             childgrid.Children.Add(remove);
             childgrid.Children.Add(TimerName);
             childgrid.Children.Add(reset);
-            childgrid.Children.Add(play);  
+            childgrid.Children.Add(play);
+            childgrid.Children.Add(pause);
             grid.Children.Add(childgrid);
             ListTimer.Children.Add(grid);
         }
 
-        private void Edit_Click(object sender, RoutedEventArgs e)
-        {
-            AddTimerWindow EditWin = new AddTimerWindow();
-            EditWin.ShowDialog();
-            if (EditWin.DialogResult == true)
-            {
-                Button btn = (Button)sender;
-                Grid parent = FindVisualParent<Grid>(btn);
-                if (parent != null)
-                {
-                    if (parent.FindName("hou") is Label lblhou)
-                    {
-                        lblhou.Content = EditWin.boxhou.Text;
-                    }
-                    if (parent.FindName("min") is Label lblmin)
-                    {
-                        lblmin.Content = EditWin.boxmin.Text;
-                    }
-                    if (parent.FindName("sec") is Label lblsec)
-                    {
-                        lblsec.Content = EditWin.boxsec.Text;
-                    }
-                    if(parent.FindName("TimerName") is Label lblName)
-                    {
-                        lblName.Content = EditWin.Title.Text;
-                    }
-                }
-            }
-           
-               
-        }
-        private T FindVisualParent<T>(DependencyObject child) where T : DependencyObject
-        {
-            DependencyObject parent =VisualTreeHelper.GetParent(child);
-            if(parent is T typedParent)
-            {
-                return typedParent;
-            }
-            else if(parent !=null)
-            {
-                return FindVisualParent<T>(parent);
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-     
-
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
-            Button deleteButton = (Button)sender;
-            Grid gridToRemove = (Grid)deleteButton.Parent;
-
-            // Xóa Grid khỏi WrapPanel
-            ListTimer.Children.Remove(gridToRemove);
+            Button buttonRemove = (Button)sender;
+            Grid childgrid=(Grid)buttonRemove.Parent;
+            Grid grid = (Grid)childgrid.Parent;
+            ListTimer.Children.Remove(grid);
         }
     }
 }
