@@ -14,7 +14,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-    
+
         <!-- Display Area -->
         <TextBlock x:Name="txtDisplay" Grid.Row="0" Text="00:00:00.00" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" 
                    FontFamily="YourFontFamily" Foreground="DarkGreen"/>
