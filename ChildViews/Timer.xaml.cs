@@ -309,6 +309,7 @@ namespace DoAn_LT.ChildViews
             reset.Content = imageReset;
             reset.Click += (s, ev) =>
             {
+                playtimer.Stop();
                 hou.Content = firsthou;
                 min.Content = firstmin;
                 sec.Content = firstsec;

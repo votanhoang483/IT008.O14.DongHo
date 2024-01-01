@@ -19,6 +19,8 @@ namespace DoAn_LT.ChildViews
     /// </summary>
     public partial class AddAlarmWindow : Window
     {
+        public delegate void SaveButtonClickedEventHandler(string gio, string phut, string title);
+        public event SaveButtonClickedEventHandler SaveButtonClicked;
         public AddAlarmWindow()
         {
             InitializeComponent();
@@ -29,20 +31,140 @@ namespace DoAn_LT.ChildViews
 
         }
 
-        private void Chime1_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
 
         private void bt_cancel_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void bt_save_Click(object sender, RoutedEventArgs e)
         {
-            
+            string ggio = boxhou.Text;
+            string pphut = boxmin.Text;
+            string ttitle = note.Text;
+            SaveButtonClicked?.Invoke(ggio, pphut, ttitle);
+            Close();
+        }
+
+        private void boxhou_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!int.TryParse(e.Text, out int number))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                TextBox box = (TextBox)sender;
+                string txt = box.Text + e.Text;
+                if (int.TryParse(txt, out int onumber) && onumber >= 0)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void boxmin_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!int.TryParse(e.Text, out int number))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                TextBox box = (TextBox)sender;
+                string txt = box.Text + e.Text;
+                if (int.TryParse(txt, out int onumber) && onumber >= 0 && onumber <= 59)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            int hou = Convert.ToInt32(boxhou.Text);
+            hou++;
+            if (hou < 10)
+            {
+                boxhou.Text = 0 + hou.ToString();
+            }
+            else
+            {
+                boxhou.Text = hou.ToString();
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int min = Convert.ToInt32(boxmin.Text);
+            if (min == 59)
+            {
+                min = -1;
+            }
+            if (min < 59)
+            {
+                min++;
+            }
+            if (min < 10)
+            {
+                boxmin.Text = 0 + min.ToString();
+            }
+            else
+            {
+                boxmin.Text = min.ToString();
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            int hou = Convert.ToInt32(boxhou.Text);
+            if (hou == 0)
+            {
+                return;
+            }
+            if (hou > 0)
+            {
+                hou--;
+                if (hou < 10)
+                {
+                    boxhou.Text = 0 + hou.ToString();
+                }
+                else
+                {
+                    boxhou.Text = hou.ToString();
+                }
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            int min = Convert.ToInt32(boxmin.Text);
+            if (min == 0)
+            {
+                min = 60;
+            }
+            if (min > 0)
+            {
+                min--;
+            }
+            if (min < 10)
+            {
+                boxmin.Text = 0 + min.ToString();
+            }
+            else
+            {
+                boxmin.Text = min.ToString();
+            }
         }
     }
 }
