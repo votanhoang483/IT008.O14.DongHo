@@ -276,21 +276,21 @@ namespace DoAn_LT.ChildViews
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
-                        string deleteQuery = "DELETE FROM LapHistory";
+
+                        // Comment out the following lines to keep data in the database
+                        string deleteQuery = "DELETE FROM LapHistory WHERE IsSaved = 0"; // Only delete unsaved laps
                         SqlCommand deleteCmd = new SqlCommand(deleteQuery, connection);
                         deleteCmd.ExecuteNonQuery();
-                        string resetIdentityQuery = "DBCC CHECKIDENT ('LapHistory', RESEED, 0)";
-                        SqlCommand resetIdentityCmd = new SqlCommand(resetIdentityQuery, connection);
-                        resetIdentityCmd.ExecuteNonQuery();
                     }
                 });
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error clearing lap history from database: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                Debug.WriteLine($"Error clearing lap history from database: {ex}");
+                MessageBox.Show($"Error clearing unsaved lap history from database: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Debug.WriteLine($"Error clearing unsaved lap history from database: {ex}");
             }
         }
+
         private class LapInfo
         {
             public int LapID { get; set; }
