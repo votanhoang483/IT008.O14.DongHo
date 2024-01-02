@@ -12,41 +12,46 @@
         </Grid.ColumnDefinitions>
         <Image Grid.Column="0" Source="home.png" Stretch="Fill" Margin="0,0,0,50" />
         <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1.5*"/>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition Height="1.5*"/>
-            </Grid.RowDefinitions>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <DockPanel Grid.Row="0" LastChildFill="False" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Thời gian" HorizontalContentAlignment="Center" FontSize="30" DockPanel.Dock="Top" ></Label>
+                    <Label x:Name="Hour"  FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="100" />
+                    <Label  Content=":" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="Minute"  FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="100"/>
+                    <Label  Content=":" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Name="Second" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="100"></Label>
+
+                </DockPanel>
 
 
-            <WrapPanel Grid.Row="1">
-                <Label x:Name="Hour"  FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="120" />
-                <Label  Content=":" FontSize="70" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label x:Name="Minute"  FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="120"/>
-                <Label   Width="20"/>
-                <Label x:Name="Weather"  FontSize="80" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-                <Label Content="°C"  FontSize="80" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-            </WrapPanel>
-
-
-            <Grid Grid.Row="2"  >
+                <DockPanel Grid.Row="1" HorizontalAlignment="Center" LastChildFill="False">
+                    <Label Content="Nhiệt độ" DockPanel.Dock="Top" HorizontalContentAlignment="Center" VerticalAlignment="Center" FontSize="30"></Label>
+                    <Label x:Name="Weather"  FontSize="60" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                    <Label Content="°C"  FontSize="60" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                </DockPanel>
 
 
 
-                <WrapPanel>
-                    <Label  x:Name="Day"  FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="120"/>
-                    <Label   Width="30"/>
-                    <Label  x:Name="Month"  FontSize="80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="120"/>
 
-                    <Label   Width="30"/>
-                    <Label  x:Name="Year"  FontSize="80" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+                <DockPanel HorizontalAlignment="Center" LastChildFill="False">
+                    <Label Content="Lịch Dương" DockPanel.Dock="Top" FontSize="30" HorizontalAlignment="Center"></Label>
+                    <Label  x:Name="Day"  FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="/" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                    <Label  x:Name="Month"  FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-                </WrapPanel>
+                    <Label Content="/" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                    <Label  x:Name="Year"  FontSize="60" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
+
+                </DockPanel>
+
+                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Lịch Âm" FontSize="30" DockPanel.Dock="Top"></Label>
+                    <Label Name="ngayam" FontSize="60" ></Label>
+                </DockPanel>
 
 
-            </Grid>
+            </StackPanel>
+
 
         </Grid>
     </Grid>

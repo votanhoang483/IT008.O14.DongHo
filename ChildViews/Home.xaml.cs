@@ -18,6 +18,9 @@ using System.Windows.Threading;
 using System.Net;
 using Newtonsoft.Json.Linq;
 using System.Xml.Linq;
+using System.Net.Http;
+using HtmlAgilityPack;
+using System.Runtime.CompilerServices;
 
 namespace DoAn_LT.ChildViews
 {
@@ -38,6 +41,7 @@ namespace DoAn_LT.ChildViews
             Month.Content = DateTime.Now.Month;
             Year.Content = DateTime.Now.Year;
             GetWeatherData();
+            GetNgayAm("https://www.xemlicham.com/");
         }
         public string TimeNow
         {
@@ -53,6 +57,12 @@ namespace DoAn_LT.ChildViews
             }
             else
                 Minute.Content = DateTime.Now.Minute.ToString();
+            if(DateTime.Now.Second < 10)
+            {
+                Second.Content = "0" + DateTime.Now.Second.ToString();
+            }
+            else
+               Second.Content = DateTime.Now.Second.ToString();
         }
         public void GetWeatherData()
         {
@@ -68,6 +78,58 @@ namespace DoAn_LT.ChildViews
                 int tempInCelsius = tempInKelvin - 273;
                 Weather.Content = tempInCelsius.ToString();
             }
+        }
+
+        public async void GetNgayAm(string url)
+        {
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    HttpResponseMessage response = client.GetAsync(url).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string htmlContent = response.Content.ReadAsStringAsync().Result;
+
+                        HtmlDocument doc = new HtmlDocument();
+                        doc.LoadHtml(htmlContent);
+
+                        HtmlNode ngayAmNode = doc.DocumentNode.SelectSingleNode("//div[@class='date-lich-van-su']");
+
+                        if (ngayAmNode != null)
+                        {
+                            string text = ngayAmNode.InnerText.Trim();
+                            ngayam.Content = text;
+                        }
+                        else
+                            ngayam.Content = "không thể lấy ngày âm từ trang web";
+                    }
+                    else
+                    {
+                        ngayam.Content = $"Lỗi: {response.StatusCode} - {response.ReasonPhrase}";
+                    }
+                }    
+            }
+                catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+
+
+            HtmlWeb web = new HtmlWeb();
+            HtmlDocument document = web.Load(url);
+
+            HtmlNode node = document.DocumentNode.SelectSingleNode("//div[@class='date-lich-van-su']");
+
+            if(node != null )
+            {
+                string content = node.InnerHtml.Trim();
+
+                ngayam.Content = content;
+            }
+
         }
     }
 
