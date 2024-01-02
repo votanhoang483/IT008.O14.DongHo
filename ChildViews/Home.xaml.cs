@@ -41,7 +41,6 @@ namespace DoAn_LT.ChildViews
             Month.Content = DateTime.Now.Month;
             Year.Content = DateTime.Now.Year;
             GetWeatherData();
-            GetNgayAm("https://www.xemlicham.com/");
         }
         public string TimeNow
         {
@@ -80,57 +79,6 @@ namespace DoAn_LT.ChildViews
             }
         }
 
-        public async void GetNgayAm(string url)
-        {
-            try
-            {
-                using (HttpClient client = new HttpClient())
-                {
-                    HttpResponseMessage response = client.GetAsync(url).Result;
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string htmlContent = response.Content.ReadAsStringAsync().Result;
-
-                        HtmlDocument doc = new HtmlDocument();
-                        doc.LoadHtml(htmlContent);
-
-                        HtmlNode ngayAmNode = doc.DocumentNode.SelectSingleNode("//div[@class='date-lich-van-su']");
-
-                        if (ngayAmNode != null)
-                        {
-                            string text = ngayAmNode.InnerText.Trim();
-                            ngayam.Content = text;
-                        }
-                        else
-                            ngayam.Content = "không thể lấy ngày âm từ trang web";
-                    }
-                    else
-                    {
-                        ngayam.Content = $"Lỗi: {response.StatusCode} - {response.ReasonPhrase}";
-                    }
-                }    
-            }
-                catch (Exception ex)
-            {
-
-                Console.WriteLine(ex.Message);
-            }
-
-
-            HtmlWeb web = new HtmlWeb();
-            HtmlDocument document = web.Load(url);
-
-            HtmlNode node = document.DocumentNode.SelectSingleNode("//div[@class='date-lich-van-su']");
-
-            if(node != null )
-            {
-                string content = node.InnerHtml.Trim();
-
-                ngayam.Content = content;
-            }
-
-        }
     }
 
 }

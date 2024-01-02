@@ -36,17 +36,12 @@
                 <DockPanel HorizontalAlignment="Center" LastChildFill="False">
                     <Label Content="Lịch Dương" DockPanel.Dock="Top" FontSize="30" HorizontalAlignment="Center"></Label>
                     <Label  x:Name="Day"  FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                    <Label Content="/" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                    <Label Content="-" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                     <Label  x:Name="Month"  FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
-                    <Label Content="/" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+                    <Label Content="-" FontSize="60" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                     <Label  x:Name="Year"  FontSize="60" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" />
 
-                </DockPanel>
-
-                <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Label Content="Lịch Âm" FontSize="30" DockPanel.Dock="Top"></Label>
-                    <Label Name="ngayam" FontSize="60" ></Label>
                 </DockPanel>
 
 
