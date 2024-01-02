@@ -1,4 +1,4 @@
-﻿    <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp">
     <Style x:Key="menuButton" TargetType="RadioButton">
@@ -8,14 +8,14 @@
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Template">
-                <Setter.Value>
-            <ControlTemplate TargetType="RadioButton">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
                     <Border Background="{TemplateBinding Background}" 
                         BorderThickness="4,0,0,0"
                             BorderBrush="{TemplateBinding BorderBrush}">
                         <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     </Border>
-            </ControlTemplate>
+                </ControlTemplate>
             </Setter.Value>
         </Setter>
         <!--Mouse over back color-->
@@ -26,7 +26,7 @@
                 <Setter Property="Foreground" Value="Transparent"/>
                 <Setter Property="BorderBrush" Value="{Binding Path=Tag,RelativeSource={RelativeSource Self}}"/>
             </Trigger>
-            
+
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Margin" Value="0,0,0,5"/>
                 <Setter Property="Background" Value="#228f4d"/>
@@ -51,8 +51,8 @@
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
-     
-    
+
+
     <Style x:Key="controlButton" TargetType="Button">
         <Setter Property="Width" Value="35" />
         <Setter Property="Background" Value="Transparent"/>
@@ -64,14 +64,14 @@
                     CornerRadius="4">
 
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <!--Mouse over back color-->
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-               
+
                 <Setter Property="Background" Value="#228f4d"/>
                 <Setter Property="Foreground" Value="{Binding Path=Tag ,RelativeSource={RelativeSource Self}}"/>
             </Trigger>
@@ -83,8 +83,8 @@
         <Setter Property="Width" Value="9"/>
         <Setter Property="Height" Value="9"/>
     </Style>
-    
-    
+
+
     <Style x:Key="ButtoniconStopWatch" TargetType ="fa:IconImage" >
         <Setter Property="Foreground" Value="{Binding Path=Tag ,RelativeSource={RelativeSource AncestorType=RadioButton}}"/>
         <Setter Property="Width" Value="30"/>
@@ -132,27 +132,32 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                
-                <Setter Property="Background" Value="#55c36c"/>
-            </Trigger>
 
-            
+                <Setter Property="Background" Value="#228f4d"/>
+
+            </Trigger>
         </Style.Triggers>
     </Style>
-        
-        <!--IconPomodoro-->
+
+    <!--IconPomodoro-->
     <Style x:Key="ButtoniconPomodoro" TargetType ="fa:IconImage" >
         <Setter Property="Foreground" Value="{Binding Path=Tag ,RelativeSource={RelativeSource AncestorType=RadioButton}}"/>
         <Setter Property="Width" Value="80"/>
         <Setter Property="Height" Value="100"/>
         <Setter Property="Margin" Value="35,0,20,0"/>
-        <Setter Property="IconFont" Value="Solid"/>
-        
+        <Setter Property="IconFont" Value="Regular"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+
+                <Setter Property="IconFont" Value="Solid"/>
+
+            </Trigger>
+        </Style.Triggers>
     </Style>
     <!--MenuButtonPomodoro-->
     <Style x:Key="menuButtonPomodoro" TargetType="Button">
         <Setter Property="Height" Value="120" />
-       
+
         <Setter Property="Margin" Value="-5,0,0,5"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="White"/>
@@ -167,8 +172,37 @@
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
-        </Setter>
-        
 
+        </Setter>
+
+
+    </Style>
+    <Style x:Key="short_long_break" TargetType="RadioButton">
+        <Setter Property="Width" Value="170"/>
+        <Setter Property="Height" Value="70"/>
+        <Setter Property="Background" Value="#209e20"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush" Value="#A1cfa1"/>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+        <Setter Property="Foreground" Value="#D1eed3"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#228f4d"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+
+                <Setter Property="Background" Value="#228f4d"/>
+
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

@@ -66,6 +66,7 @@ namespace DoAn_LT.ViewModels
             ShowTimerCommand = new ViewModelCommand(ExecuteShowTimerCommand);
             ShowWorldClockCommand = new ViewModelCommand(ExecuteShowWorldClockCommand);
             ShowHomeCommand = new ViewModelCommand(ExecuteShowHomeCommand);
+            ExecuteShowHomeCommand(null);
             }
 
         private void ExecuteShowWorldClockCommand(object obj)

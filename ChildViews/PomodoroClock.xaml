@@ -6,23 +6,27 @@
              xmlns:local="clr-namespace:DoAn_LT.ChildViews"
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
+             
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid >
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" >
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
 
-                <Button Style="{StaticResource PomodoroButton}" Click="Pomodoro_Click"
-                        Content="Pomodoro" FontSize="25" FontFamily="Montserrat" FontWeight="Medium"/>
-                <Button Style="{StaticResource PomodoroButton}" Click="Short_Click"
-                        Content="Short Break" FontSize="25" FontFamily="Montserrat" FontWeight="Medium"/>
-                <Button Style="{StaticResource PomodoroButton}" Click="Long_Click"
+                <RadioButton Style="{StaticResource short_long_break}" Click="Pomodoro_Click"
+                        Content="Pomodoro" FontSize="25" FontFamily="Montserrat" FontWeight="Medium"
+                             Margin="0,0,50,0"/>
+                <RadioButton Style="{StaticResource short_long_break}" Click="Short_Click"
+                        Content="Short Break" FontSize="25" FontFamily="Montserrat" FontWeight="Medium"
+                             Margin="0,0,50,0"/>
+                <RadioButton Style="{StaticResource short_long_break}" Click="Long_Click"
                         Content="Long Break" FontSize="25" FontFamily="Montserrat" FontWeight="Medium"/>
 
             </StackPanel>
@@ -110,6 +114,23 @@ Tag="#D1eed3">
 
             </StackPanel>
 
+
+        </Grid>
+        <Grid Grid.Row="3">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Button x:Name="Stop_Song"
+            Click="Stop_Song_Click"
+            Style="{StaticResource PomodoroButton}"
+            Content="Stop Song" FontSize="25" 
+            FontFamily="Montserrat" FontWeight="Medium"
+            Margin="0,0,50,0"/>
+                <Label x:Name="StopSong"
+                  FontSize="20" Width="500"
+                     Background="#A3d5a7"
+                     Foreground="Black"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center"/>
+            </StackPanel>
 
         </Grid>
 

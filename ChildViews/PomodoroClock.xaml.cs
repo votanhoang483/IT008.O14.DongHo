@@ -20,6 +20,7 @@ using System.Data.SqlTypes;
 using Notifications.Wpf;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
+using System.Threading;
 
 
 namespace DoAn_LT.ChildViews
@@ -45,13 +46,26 @@ namespace DoAn_LT.ChildViews
 
         private void Music_Click(object sender, EventArgs e)
         {
+            SqlCommand sqlcmd1 = new SqlCommand();
+            SqlCommand sqlcmd2 = new SqlCommand();
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
                 fullfilepath = openFileDialog.FileName;
                 filename = System.IO.Path.GetFileNameWithoutExtension(fullfilepath);
                 mediaPlayer.Open(new Uri(fullfilepath));
+                sqlcmd1.CommandType = CommandType.Text;
+                sqlcmd1.CommandText = "update pomodoro_clock set name=N'" + filename + "'";
+                sqlcmd1.Connection = sqlcon;
+                sqlcmd1.ExecuteNonQuery();
+                sqlcmd2.CommandType = CommandType.Text;
+                sqlcmd2.CommandText = "update pomodoro_clock set link=N'" + fullfilepath + "'";
+                sqlcmd2.Connection = sqlcon;
+                sqlcmd2.ExecuteNonQuery();
+
+
             }
+            StopSong.Content = filename;
         }
 
 
@@ -94,9 +108,17 @@ namespace DoAn_LT.ChildViews
                     second_pomodoro = d;
                     second_long = f;
                     second_short = e;
+                    string g = reader.GetString(6);
+                    string h = reader.GetString(7);
+                    filename = g;
+                    fullfilepath = h;
+
 
                 }
                 reader.Close();
+                StopSong.Content = filename;
+
+
             }
             catch (Exception ex)
             {
@@ -121,6 +143,7 @@ namespace DoAn_LT.ChildViews
         private void Stop_Click(object sender, EventArgs e)
         {
             aTimer.Stop();
+
         }
 
         private void aTimer_Tick(object sender, EventArgs e)
@@ -164,8 +187,9 @@ namespace DoAn_LT.ChildViews
             }
             if (minute_pomodoro == 0 && second_pomodoro == 0 && flag == 1)
             {
-                notification();
 
+                notification();
+                mediaPlayer.Play();
 
                 aTimer.Stop();
             }
@@ -339,6 +363,15 @@ namespace DoAn_LT.ChildViews
                 label2.Text = output(minute_long);
             }
         }
+        public class MyNotificationContent : NotificationContent
+        {
+            public event Action Closed;
+
+            public void Close()
+            {
+                Closed?.Invoke();
+            }
+        }
         private void notification()
         {
 
@@ -349,22 +382,39 @@ namespace DoAn_LT.ChildViews
             }
             if (flag == 2) { noti = "Time Out Short Break"; }
             if (flag == 3) { noti = "Time Out Long Break"; }
-            var notificationManager = new NotificationManager();
-            var notificationContent = new NotificationContent
+
+            var myNotificationContent = new MyNotificationContent
             {
                 Title = "Notification",
-
                 Message = noti,
                 Type = NotificationType.Information,
 
             };
 
-            notificationManager.Show(notificationContent, expirationTime: TimeSpan.FromSeconds(30)
+            var notificationManager = new NotificationManager();
 
-    );
+            // Subscribe to the notification dismissed event
+
+            myNotificationContent.Closed += () =>
+            {
+                try
+                {
+                    mediaPlayer.Stop();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            };
+            notificationManager.Show(myNotificationContent, expirationTime: TimeSpan.FromSeconds(30));
+
+
         }
 
+        private void Stop_Song_Click(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Stop();
+        }
     }
 
 }
-
