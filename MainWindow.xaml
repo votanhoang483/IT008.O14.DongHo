@@ -13,7 +13,8 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
-        Icon="C:\Users\PC\Documents\GitHub\IT008.O14.DongHo\ChildViews\icon_clock.jpg">
+        Icon="ChildViews\icon_clock.jpg"
+        >
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
