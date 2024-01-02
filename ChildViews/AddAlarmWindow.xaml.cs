@@ -9,8 +9,10 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace DoAn_LT.ChildViews
 {
@@ -19,7 +21,7 @@ namespace DoAn_LT.ChildViews
     /// </summary>
     public partial class AddAlarmWindow : Window
     {
-        public delegate void SaveButtonClickedEventHandler(string gio, string phut, string title);
+        public delegate void SaveButtonClickedEventHandler(string gio, string phut, string title, string fn, string fp);
         public event SaveButtonClickedEventHandler SaveButtonClicked;
         public AddAlarmWindow()
         {
@@ -39,14 +41,7 @@ namespace DoAn_LT.ChildViews
             Close();
         }
 
-        private void bt_save_Click(object sender, RoutedEventArgs e)
-        {
-            string ggio = boxhou.Text;
-            string pphut = boxmin.Text;
-            string ttitle = note.Text;
-            SaveButtonClicked?.Invoke(ggio, pphut, ttitle);
-            Close();
-        }
+
 
         private void boxhou_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -58,7 +53,7 @@ namespace DoAn_LT.ChildViews
             {
                 TextBox box = (TextBox)sender;
                 string txt = box.Text + e.Text;
-                if (int.TryParse(txt, out int onumber) && onumber >= 0)
+                if (int.TryParse(txt, out int onumber) && onumber >= 0 && onumber <= 23)
                 {
                     e.Handled = false;
                 }
@@ -165,6 +160,45 @@ namespace DoAn_LT.ChildViews
             {
                 boxmin.Text = min.ToString();
             }
+        }
+
+
+        string fullfilepath;
+        string filename;
+
+        private void nhacc_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+
+                    fullfilepath = openFileDialog.FileName;
+                    filename = System.IO.Path.GetFileNameWithoutExtension(fullfilepath);
+                    nhacc.Text = filename;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+        private void bt_save_Click(object sender, RoutedEventArgs e)
+        {
+            string ggio = boxhou.Text;
+            string pphut = boxmin.Text;
+            string ttitle = note.Text;
+            nhacc.Text = filename;
+            string ffn = nhacc.Text;
+            string ffp = fullfilepath;
+            SaveButtonClicked?.Invoke(ggio, pphut, ttitle, ffn, ffp);
+            Close();
         }
     }
 }
