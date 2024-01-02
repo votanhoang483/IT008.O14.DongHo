@@ -33,18 +33,63 @@
             <Button x:Name="btnReset" Click="btnReset_Click" Style="{StaticResource menuButtonStopWatch}" Tag="#D1eed3">
                 <fa:IconImage Icon="ArrowRotateLeft" Style="{StaticResource ButtoniconStopWatch}"/>
             </Button>
-
+            <!-- Save Button -->
+            <Button x:Name="btnSave" Click="btnSave_Click" Style="{StaticResource menuButtonStopWatch}" Tag="#D1eed3">
+                <fa:IconImage Icon="Save" Style="{StaticResource ButtoniconStopWatch}" />
+            </Button>
+            <!-- Delete Button -->
+            <Button x:Name="btnDelete" Click="btnDelete_Click" Style="{StaticResource menuButtonStopWatch}" Tag="#D1eed3">
+                <fa:IconImage Icon="Trash" Style="{StaticResource ButtoniconStopWatch}" />
+            </Button>
         </StackPanel>
 
-        <!-- Lap Times -->
-        <ListView x:Name="lstLapTimes" Grid.Row="2" Margin="10" MaxHeight="350" FontFamily="Arial Rounded MT Bold" FontSize="28" SelectionChanged="lstLapTimes_SelectionChanged">
+        <ListView x:Name="lstSavedLaps" Grid.Row="3" Margin="10" MaxHeight="220" FontFamily="Arial Rounded MT Bold" FontSize="28">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Lap" DisplayMemberBinding="{Binding LapNumber}" Width="75"/>
-                    <GridViewColumn Header="Time" DisplayMemberBinding="{Binding LapTime}" Width="435"/>
-                    <GridViewColumn Header="Diff" DisplayMemberBinding="{Binding LapDiff}" Width="435"/>
+                    <GridViewColumn Header="Lap Time" DisplayMemberBinding="{Binding LapTime}" Width="250"/>
+                    <GridViewColumn Header="Note" DisplayMemberBinding="{Binding Note}" Width="300"/>
+                    <GridViewColumn Header="Select" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" HorizontalAlignment="Center" VerticalContentAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
+
+
+        <!-- Lap Times -->
+        <ListView x:Name="lstLapTimes" Grid.Row="2" Margin="10" MaxHeight="220" FontFamily="Arial Rounded MT Bold" FontSize="28" SelectionChanged="lstLapTimes_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Lap" DisplayMemberBinding="{Binding LapNumber}" Width="75"/>
+                    <GridViewColumn Header="Time" DisplayMemberBinding="{Binding LapTime}" Width="250"/>
+                    <GridViewColumn Header="Diff" DisplayMemberBinding="{Binding LapDiff}" Width="200"/>
+
+                    <!-- CheckListBox Column -->
+                    <GridViewColumn Header="Select" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" HorizontalAlignment="Center" VerticalContentAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- Note Column -->
+                    <GridViewColumn Header="Note" Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox x:Name="txtNote" Text="{Binding Note}" HorizontalAlignment="Center" VerticalContentAlignment="Center" Width="200" Margin="5" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+            
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </UserControl>
