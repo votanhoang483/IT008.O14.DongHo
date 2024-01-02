@@ -33,16 +33,6 @@ namespace DoAn_LT.ChildViews
 
         }
 
-
-
-
-        private void bt_cancel_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-
-
         private void boxhou_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!int.TryParse(e.Text, out int number))
@@ -198,6 +188,12 @@ namespace DoAn_LT.ChildViews
             string ffn = nhacc.Text;
             string ffp = fullfilepath;
             SaveButtonClicked?.Invoke(ggio, pphut, ttitle, ffn, ffp);
+          
+            Close();
+        }
+
+        private void bt_cancel_Click(object sender, RoutedEventArgs e)
+        {
             Close();
         }
     }

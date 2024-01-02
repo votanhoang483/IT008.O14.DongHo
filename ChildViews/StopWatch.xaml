@@ -38,7 +38,8 @@
                 <fa:IconImage Icon="Save" Style="{StaticResource ButtoniconStopWatch}" />
             </Button>
             <!-- Delete Button -->
-            <Button x:Name="btnDelete" Click="btnDelete_Click" Style="{StaticResource menuButtonStopWatch}" Tag="#D1eed3">
+            <Button x:Name="btnDelete" Click="btnDelete_Click" Style="{StaticResource menuButtonStopWatch}" Tag="#D1eed3"
+                    ToolTip="Remove">
                 <fa:IconImage Icon="Trash" Style="{StaticResource ButtoniconStopWatch}" />
             </Button>
         </StackPanel>
