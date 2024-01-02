@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Notifications.Wpf;
 
 
 namespace DoAn_LT.ChildViews
@@ -57,7 +58,7 @@ namespace DoAn_LT.ChildViews
             remove.Click += Remove_Click;
 
 
-
+            
 
 
             Label TimerName = new Label();
@@ -132,6 +133,27 @@ namespace DoAn_LT.ChildViews
             };
 
 
+            void notification()
+            {
+
+
+               
+                var notificationManager = new NotificationManager();
+                var notificationContent = new NotificationContent
+                {
+                    Title = "Notification",
+
+                    Message = "Time Out",
+                    Type = NotificationType.Information,
+
+                };
+
+                notificationManager.Show(notificationContent, expirationTime: TimeSpan.FromSeconds(30)
+
+        );
+            }
+
+            
 
             Button play = new Button();
             play.Margin = new Thickness(111, 94, 111, 15);
@@ -198,7 +220,10 @@ namespace DoAn_LT.ChildViews
                 }
                 if(h==0&&g==0&&p==0)
                 {
+
                     playtimer.Stop();
+                    notification();
+                    
                 }
                 if (g >= 0)
                 {
@@ -238,7 +263,7 @@ namespace DoAn_LT.ChildViews
 
 
 
-
+           
 
             string firsthou = "00";
             string firstmin = "00";

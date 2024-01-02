@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using NodaTime;
 
 namespace DoAn_LT.ChildViews
@@ -21,26 +22,59 @@ namespace DoAn_LT.ChildViews
     /// </summary>
     public partial class WorldClock : UserControl
     {
+        private DispatcherTimer _timer;
+        List<string> myItems = new List<string>
+
+        {
+
+        };
+
         public WorldClock()
         {
             InitializeComponent();
-        }
 
+
+        }
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+
+            var itemToRemove = ListResult.SelectedItem;
+
+
+            if (itemToRemove != null)
+            {
+
+                ListResult.Items.Remove(itemToRemove);
+            }
+        }
+        private void ListClock_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (ListClock.Text.Length > 0)
+            {
+
+                ListClock.ItemsSource = myItems.Where(item => item.ToLower().Contains(ListClock.Text.ToLower()));
+            }
+            else
+            {
+
+            }
+
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(ListClock.Text!=null)
+            if (ListClock.Text != null)
             {
-                if(ListClock.Text=="Samoa"
+                if (ListClock.Text == "Samoa"
                     || ListClock.Text == "Pago Pago")
                 {
                     DateTimeZone UTCminus11 = DateTimeZoneProviders.Tzdb["Pacific/Niue"];
                     ZonedDateTime currentUTCminus11 = SystemClock.Instance.GetCurrentInstant().InZone(UTCminus11);
-                    TextBlock UTC_minus11=new TextBlock();
+                    TextBlock UTC_minus11 = new TextBlock();
                     UTC_minus11.FontSize = 20;
-                    UTC_minus11.Text= "Time in "+ListClock.Text+": "+currentUTCminus11.ToString();
+                    UTC_minus11.Text = "Time in " + ListClock.Text + ": " + currentUTCminus11.ToString();
                     ListResult.Items.Add(UTC_minus11);
                 }
-                if (ListClock.Text == "Hawaii (Hoa Kì)"
+                if (ListClock.Text == "Hoa Kì-Hawaii"
                     || ListClock.Text == "Tahiti (Pháp)")
                 {
                     DateTimeZone UTCminus11 = DateTimeZoneProviders.Tzdb["Pacific/Honolulu"];
@@ -50,7 +84,7 @@ namespace DoAn_LT.ChildViews
                     UTC_minus11.Text = "Time in " + ListClock.Text + ": " + currentUTCminus11.ToString();
                     ListResult.Items.Add(UTC_minus11);
                 }
-                if (ListClock.Text == "Alaska (Hoa Kì)")
+                if (ListClock.Text == "Hoa Kì-Alaska")
                 {
                     DateTimeZone UTCminus11 = DateTimeZoneProviders.Tzdb["America/Anchorage"];
                     ZonedDateTime currentUTCminus11 = SystemClock.Instance.GetCurrentInstant().InZone(UTCminus11);
@@ -59,7 +93,7 @@ namespace DoAn_LT.ChildViews
                     UTC_minus11.Text = "Time in " + ListClock.Text + ": " + currentUTCminus11.ToString();
                     ListResult.Items.Add(UTC_minus11);
                 }
-                if (ListClock.Text == "California, Washington, Oregon (Hoa Kì)"
+                if (ListClock.Text == "Hoa Kì-Washington D.C., Virginia, Maryland"
                     || ListClock.Text == "Mexico City (Mexico)"
                     || ListClock.Text == "British Columbia (Canada)")
                 {
@@ -70,8 +104,8 @@ namespace DoAn_LT.ChildViews
                     UTC_minus11.Text = "Time in " + ListClock.Text + ": " + currentUTCminus11.ToString();
                     ListResult.Items.Add(UTC_minus11);
                 }
-                if (ListClock.Text == "Arizona, Colorado, Utah (Hoa Kì)"
-                   || ListClock.Text == "Alberta (Canada)"
+                if (ListClock.Text == "Hoa Kì-Arizona, Colorado, Utah"
+                   || ListClock.Text == "Canada-Alberta"
                    || ListClock.Text == "Chihuahua (Mexico)")
                 {
                     DateTimeZone UTCminus11 = DateTimeZoneProviders.Tzdb["America/Los_Angeles"];
@@ -81,8 +115,8 @@ namespace DoAn_LT.ChildViews
                     UTC_minus11.Text = "Time in " + ListClock.Text + ": " + currentUTCminus11.ToString();
                     ListResult.Items.Add(UTC_minus11);
                 }
-                if (ListClock.Text == "Texas, Illiois, Missouri (Hoa Kì)"
-                   || ListClock.Text == "Saskatchewan (Canada)"
+                if (ListClock.Text == "Hoa Kì-Texas, Illiois, Missouri"
+                   || ListClock.Text == "Canada-Saskatchewan"
                    )
                 {
                     DateTimeZone UTCminus11 = DateTimeZoneProviders.Tzdb["America/Denver"];
@@ -92,8 +126,8 @@ namespace DoAn_LT.ChildViews
                     UTC_minus11.Text = "Time in " + ListClock.Text + ": " + currentUTCminus11.ToString();
                     ListResult.Items.Add(UTC_minus11);
                 }
-                if (ListClock.Text == "New York, Florida, Georgia (Hoa Kì)"
-                  || ListClock.Text == "Toronto (Canada)"
+                if (ListClock.Text == "Hoa Kì-New York, Florida, Georgia"
+                  || ListClock.Text == "Canada-Toronto"
                   || ListClock.Text == "Peru"
                   )
                 {
@@ -104,7 +138,7 @@ namespace DoAn_LT.ChildViews
                     UTC_minus11.Text = "Time in " + ListClock.Text + ": " + currentUTCminus11.ToString();
                     ListResult.Items.Add(UTC_minus11);
                 }
-                if (ListClock.Text == "Washington D.C., Virginia, Maryland (Hoa Kì)"
+                if (ListClock.Text == "Hoa Kì-Washington D.C., Virginia, Maryland"
                   || ListClock.Text == "Puerto Rico"
                   || ListClock.Text == "Chile"
                   )
@@ -118,8 +152,8 @@ namespace DoAn_LT.ChildViews
                 }
                 if (ListClock.Text == "Argentina"
                  || ListClock.Text == "Brazil"
-                 || ListClock.Text == "Halifax (Canada)"
-                 
+                 || ListClock.Text == "Canada-Halifax"
+
                  )
                 {
                     DateTimeZone UTCminus11 = DateTimeZoneProviders.Tzdb["America/Argentina/Buenos_Aires"];
@@ -148,7 +182,7 @@ namespace DoAn_LT.ChildViews
                 || ListClock.Text == "Ireland"
                 || ListClock.Text == "Iceland"
                 || ListClock.Text == "Ghana"
-                
+
 
                 )
                 {
@@ -189,7 +223,7 @@ namespace DoAn_LT.ChildViews
                 || ListClock.Text == "Nam Phi"
                 || ListClock.Text == "Syria"
                 || ListClock.Text == "Ai Cập"
-                
+
 
 
                 )
@@ -208,8 +242,8 @@ namespace DoAn_LT.ChildViews
                 || ListClock.Text == "Kuwait"
                 || ListClock.Text == "Qatar"
                 || ListClock.Text == "Yemen"
-              
-                
+
+
 
 
                 )
@@ -411,7 +445,7 @@ namespace DoAn_LT.ChildViews
                     UTC_minus11.Text = "Time in " + ListClock.Text + ": " + currentUTCminus11.ToString();
                     ListResult.Items.Add(UTC_minus11);
                 }
-                if (ListClock.Text == "Lord Howe Island (Úc)"
+                if (ListClock.Text == "Úc-Lord Howe Island"
 
 
 
@@ -439,7 +473,7 @@ namespace DoAn_LT.ChildViews
                     UTC_minus11.Text = "Time in " + ListClock.Text + ": " + currentUTCminus11.ToString();
                     ListResult.Items.Add(UTC_minus11);
                 }
-                if (ListClock.Text == "Norfolk Island (Úc)"
+                if (ListClock.Text == "Úc-Norfolk Island"
 
 
 
@@ -510,5 +544,6 @@ namespace DoAn_LT.ChildViews
                 }
             }
         }
+
     }
 }
