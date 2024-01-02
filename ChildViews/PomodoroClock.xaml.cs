@@ -31,10 +31,10 @@ namespace DoAn_LT.ChildViews
 
     public partial class PomodoroClock : UserControl
     {
-        string filename;
-        string fullfilepath;
+        string filename="";
+        string fullfilepath="";
         int flag = 1;
-        string strcon = @"Data Source=LAPTOP-CL3NH660;Initial Catalog=clock;Integrated Security=True";
+       private string strcon  = @"Server=tcp:server-super-vip.database.windows.net,1433;Initial Catalog=doancuoiki-dongho;Persist Security Info=False;User ID=serversupervip;Password=Vip12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         SqlConnection sqlcon = null;
         int minute_pomodoro = 25;
         int second_pomodoro = 0;
@@ -62,8 +62,6 @@ namespace DoAn_LT.ChildViews
                 sqlcmd2.CommandText = "update pomodoro_clock set link=N'" + fullfilepath + "'";
                 sqlcmd2.Connection = sqlcon;
                 sqlcmd2.ExecuteNonQuery();
-
-
             }
             StopSong.Content = filename;
         }
@@ -73,28 +71,32 @@ namespace DoAn_LT.ChildViews
         public PomodoroClock()
         {
             InitializeComponent();
-
-            if (sqlcon == null)
+            try
             {
-                sqlcon = new SqlConnection(strcon);
+                if (sqlcon == null)
+                {
+                    sqlcon = new SqlConnection(strcon);
+                }
+                if (sqlcon.State == ConnectionState.Closed)
+                {
+                    sqlcon.Open();
+                }
             }
-            if (sqlcon.State == ConnectionState.Closed)
+            catch(Exception ex)
             {
-                sqlcon.Open();
+                MessageBox.Show(ex.Message);
             }
             aTimer = new System.Windows.Forms.Timer();
             aTimer.Tick += new EventHandler(aTimer_Tick);
             aTimer.Interval = 1000;
             SqlCommand sqlcmd1 = new SqlCommand();
 
-            try
-            {
+            
                 sqlcmd1.CommandType = CommandType.Text;
                 sqlcmd1.CommandText = "select * from pomodoro_clock";
                 sqlcmd1.Connection = sqlcon;
                 SqlDataReader reader = sqlcmd1.ExecuteReader();
-
-                if (reader.Read())
+              if (reader.Read())
                 {
                     int a = reader.GetInt32(0);
                     int b = reader.GetInt32(1);
@@ -108,22 +110,18 @@ namespace DoAn_LT.ChildViews
                     second_pomodoro = d;
                     second_long = f;
                     second_short = e;
-                    string g = reader.GetString(6);
-                    string h = reader.GetString(7);
-                    filename = g;
-                    fullfilepath = h;
+                
+                     string g = reader["name"].ToString();
+                    StopSong.Content = g;
+                string h = reader["link"].ToString();
+                fullfilepath = h;
+                mediaPlayer.Open(new Uri(fullfilepath));
 
-
-                }
+            }
                 reader.Close();
-                StopSong.Content = filename;
+               
 
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message);
-            }
+           
 
 
             label1.Text = output(second_pomodoro);

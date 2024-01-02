@@ -27,7 +27,7 @@ namespace DoAn_LT.ChildViews
     /// </summary>
     public partial class Timer : UserControl
     {
-        string strcon = @"Data Source=LAPTOP-CL3NH660;Initial Catalog=timer;Integrated Security=True";
+        string strcon = @"Server=tcp:server-super-vip.database.windows.net,1433;Initial Catalog=doancuoiki-dongho;Persist Security Info=False;User ID=serversupervip;Password=Vip12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         SqlConnection sqlcon = null;
         public Timer()
         {
