@@ -20,12 +20,12 @@ Time Management là một ứng dụng được tạo ra để giúp người d�
 
 Time Management is an application that made for helping user manage the time, so the activites will be more flexible and more easy-controled, simultaneously optimize efficiency in working, studying, ect...
 ## 3. Feature:
-* Home: Show current time, date in Việt Nam and temperature in Hồ Chí Minh city .
-* Alarm.
-* Timer: Countdown the setted time.
-* Stopwatch: Measure the amount of time that elapses between its activation and deactivation.
-* Pomodoro Clock: Share the working or studying time in an effective way.
-* World Clock: Show time in any country/region in the world.
+* Home: Hiển thị ngày giờ hiện tại ở Việt Nam, và nhiệt độ hiện tại ở thành phố Hồ Chí Minh.
+* Báo thức.
+* Hẹn giờ: Đếm ngược từ thời gian đã cài đặt.
+* Bấm giờ: Đo lương thời gian và lưu các mốc từ lúc đồng hồ kích hoạt tới lúc kết thúc.
+* Pomodoro Clock: Chia thời gian làm việc và học tập một các hiệu quả.
+* Giờ thế giới: Hiển thị thời gian các Quốc gia/Vùng lãnh thổ trên thế giớ.
 
 ---
 * Home: Show current time, date in Việt Nam and temperature in Hồ Chí Minh city .
@@ -39,40 +39,28 @@ Time Management is an application that made for helping user manage the time, so
 
 
 ## 4. How to use:
-* Bước 1: Tải source từ : https://github.com/votanhoang483/BaiTapThucHanhIT008
-* Bước 2: Khởi động ứng dụng bằng cách ấn nút "Run" trên Visual Studio
-* Bước 3: Thêm bài hát yêu thích hoặc tải về từ đường dẫn và nghe.
+* Bước 1: Tải file cài đặt từ : https://github.com/votanhoang483/IT008.O14.DongHo/releases
+* Bước 2: Tiến hành cài đặt trên máy tính.
+* Bước 3: Trải nghiệm thôi nào.
 ---
-* Step 1: Clone the repository from : https://github.com/votanhoang483/BaiTapThucHanhIT008
-* Step 2: Open the application by click "Run" button on Visual Studio
-* Step 3: .Add your favourite songs or download them and listen.
+* Step 1: Download the install file from : https://github.com/votanhoang483/IT008.O14.DongHo/releases
+* Step 2: Install the application on your computer.
+* Step 3: Enjoy it.
 
 ## 5. Video demo: 
-* Link: https://www.youtube.com/watch?v=KEmqgC70zlE
+* Link: https://www.youtube.com/watch?v=pqukfz8BYqI
 
 
 ## 6. License
 MIT License
 
-Copyright (c) 2023 Music Player
+Copyright (c) 2023 Time Management
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 
